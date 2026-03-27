@@ -1,7 +1,7 @@
 // src/hooks/useSearchHistoryQuery.js
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { doc, getDoc, setDoc, increment } from 'firebase/firestore';
-import { db } from '../firebaseconfig';
+import { db } from '../config/firebaseconfig';
 import { getTenantCollectionPath } from '../utils/tenantUtils';
 import { useAuth } from '../context/AuthContext';
 import { POLLING_INTERVALS, QUERY_DEFAULTS, MUTATION_DEFAULTS } from '../config/queryConfig';

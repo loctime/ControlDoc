@@ -6,7 +6,7 @@ import {
 import { Business as BusinessIcon } from "@mui/icons-material";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc, getDoc, collection, query, where, getDocs, serverTimestamp } from "firebase/firestore";
-import { auth, db } from "../../firebaseconfig";
+import { auth, db } from "../../config/firebaseconfig";
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { getTenantCollectionPath } from "../../utils/tenantUtils";

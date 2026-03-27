@@ -1,5 +1,5 @@
-import admin from 'firebase-admin';
 import { getTenantFromRequest, getTenantCollectionPath } from '../utils/tenantUtils.js';
+import { controlFileAuth, controlDocDb } from '../firebaseconfig.js';
 
 const ALLOWED_ROLES = new Set(['max', 'admin', 'user']);
 
@@ -33,15 +33,14 @@ export async function authenticateFirebaseUser(req, res, next) {
     req.tenantId = tenantId;
     req.getTenantCollectionPath = (collectionName) => getTenantCollectionPath(tenantId, collectionName);
 
-    const decodedToken = await admin.auth().verifyIdToken(idToken);
-    const db = admin.firestore();
+    const decodedToken = await controlFileAuth.verifyIdToken(idToken);
 
     // Log temporal: tenant y uid al validar
     console.log('[AUTH] authenticateFirebaseUser | req.tenantId:', tenantId, '| decoded.uid:', decodedToken.uid, '| email:', decodedToken.email);
 
     // Cargar perfil exclusivamente del tenant en contexto (sin fallback cross-tenant)
     const tenantUsersPath = getTenantCollectionPath(tenantId, 'users');
-    const userDoc = await db.collection(tenantUsersPath).doc(decodedToken.uid).get();
+    const userDoc = await controlDocDb.collection(tenantUsersPath).doc(decodedToken.uid).get();
 
     if (!userDoc.exists) {
       console.warn('[AUTH] Usuario no encontrado en tenant | tenantId:', tenantId, '| path:', tenantUsersPath, '| uid:', decodedToken.uid);

@@ -1,5 +1,5 @@
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../firebaseconfig";
+import { db } from "../config/firebaseconfig";
 import { getTenantCollectionPath } from "./tenantUtils";
 
 /**

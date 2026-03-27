@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";
-import { db } from "../../firebaseconfig";
+import { db } from "../../config/firebaseconfig";
 import CompactStatusRow from "./dashboard/CompactStatusRow";
 
 import {

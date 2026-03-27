@@ -1,6 +1,6 @@
 // src/hooks/useAdminNotifications.js
 import React, { useEffect, useState } from "react";
-import { db } from "../firebaseconfig";
+import { db } from "../config/firebaseconfig";
 import { collection, query, where, orderBy, getDocs, updateDoc, doc } from "firebase/firestore";
 import { getTenantCollectionPath } from "../utils/tenantUtils";
 

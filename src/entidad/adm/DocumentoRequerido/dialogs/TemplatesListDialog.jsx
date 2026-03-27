@@ -27,7 +27,7 @@ import {
   Delete as DeleteIcon
 } from '@mui/icons-material';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { db } from '../../../../firebaseconfig';
+import { db } from '../../../../config/firebaseconfig';
 import CompanySelectorLocal from '../CompanySelectorModal';
 import { createRequiredDocument } from '../../../../utils/MetadataService';
 import { getAuth } from "firebase/auth";

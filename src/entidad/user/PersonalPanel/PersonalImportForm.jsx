@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../config/firebaseconfig";
 import { collection, addDoc, serverTimestamp, writeBatch, doc, query, where, getDocs } from "firebase/firestore";
 import { cleanFirestoreData } from "../../../utils/cleanFirestoreData";
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';

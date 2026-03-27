@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { auth } from "../../firebaseconfig";
+import { auth } from "../../config/firebaseconfig";
 import CompanyStatusBadge from "./components/CompanyStatusBadge";
 import useDashboardDataQuery from "./components/hooks/useDashboardDataQuery";
 import {
@@ -22,7 +22,7 @@ import {
   TableCell,
   Tooltip
 } from "@mui/material";
-import { firebaseSignOut } from "../../firebaseconfig";
+import { firebaseSignOut } from "../../config/firebaseconfig";
 import DescriptionIcon from "@mui/icons-material/Description";
 import PersonIcon from "@mui/icons-material/Person";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";

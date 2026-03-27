@@ -1,7 +1,7 @@
 // src/hooks/queries/useAdminQueries.js
 import { useQuery } from '@tanstack/react-query';
 import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebaseconfig';
+import { db } from '../../config/firebaseconfig';
 import { getTenantCollectionPath } from '../../utils/tenantUtils';
 import { POLLING_INTERVALS, QUERY_DEFAULTS } from '../../config/queryConfig';
 import { useRealtimePolling } from '../useRealtimePolling';

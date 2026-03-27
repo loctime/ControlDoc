@@ -2,7 +2,7 @@
 
 import { React,  useEffect, useState } from "react"
 import { collection, getDocs } from "firebase/firestore"
-import { db } from "../../firebaseconfig"
+import { db } from "../../config/firebaseconfig"
 import { getTenantCollectionPath } from "../../utils/tenantUtils"
 import WarningIcon from "@mui/icons-material/Warning"
 import ErrorIcon from "@mui/icons-material/Error"

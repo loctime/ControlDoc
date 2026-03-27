@@ -6,7 +6,7 @@ import {
   Chip, CircularProgress, Alert, Checkbox, ListItemText
 } from '@mui/material';
 import { useSnackbar } from 'notistack';
-import { db } from '../../../firebaseconfig';
+import { db } from '../../../config/firebaseconfig';
 import { useAuth } from '../../../context/AuthContext';
 import { collection, getDocs, query, where, doc, updateDoc } from 'firebase/firestore';
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';

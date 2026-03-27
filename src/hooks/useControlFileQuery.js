@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-// import { connectControlFileWithGoogle, getControlFileAuth, getControlFileIdToken, getControlFileUser, handleRedirectResult, disconnectControlFile } from '../utils/ControlFileAuth'; // SDK deshabilitado temporalmente para debug
-// import { APP_DISPLAY_NAME } from '../utils/ControlFileClient'; // SDK deshabilitado temporalmente para debug
+import { connectControlFileWithGoogle, getControlFileIdToken, getControlFileUser, handleRedirectResult, disconnectControlFile } from '../utils/ControlFileAuth';
+import { APP_DISPLAY_NAME } from '../utils/ControlFileClient';
 
 // Query keys
 export const controlFileKeys = {
@@ -38,9 +38,6 @@ const checkAuthStatus = async () => {
 };
 
 export function useControlFileQuery() {
-  // SDK deshabilitado temporalmente para debug
-  throw new Error("SDK deshabilitado temporalmente para debug");
-  
   const queryClient = useQueryClient();
   const [status, setStatus] = useState('checking');
   const [error, setError] = useState(null);
@@ -110,7 +107,7 @@ export function useControlFileQuery() {
       // El SDK solo tiene upload() con parentId, no uploadFile() con path
       // Hacemos llamada directa a la API para usar paths
       const token = await getControlFileIdToken();
-      const baseUrl = import.meta.env.VITE_CONTROLFILE_BACKEND_URL;
+      const baseUrl = import.meta.env.VITE_CONTROLFILE_BACKEND_URL || import.meta.env.VITE_API_URL || 'https://controlfile.onrender.com';
       
       // Si no se proporciona path, usar path por defecto
       const defaultPath = path || ['controldoc', 'archivos', currentUser.uid];

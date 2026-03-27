@@ -5,7 +5,7 @@ import {
   serverTimestamp,
   collection, addDoc, updateDoc, doc, query, where, getDocs
 } from 'firebase/firestore';
-import { db } from '../../../firebaseconfig';
+import { db } from '../../../config/firebaseconfig';
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';
 import {
   Dialog, DialogTitle, DialogContent, DialogActions,

@@ -11,7 +11,7 @@ import {
   where,
   getDocs
 } from "firebase/firestore";
-import { db, auth } from "../../firebaseconfig";
+import { db, auth } from "../../config/firebaseconfig";
 import axios from 'axios';
 import { approveDocument, rejectDocument } from "../../utils/MetadataService";
 import { cleanFileName } from '../../utils/cleanFileName';

@@ -12,7 +12,7 @@ import {
   doc,
   serverTimestamp,
 } from "firebase/firestore"
-import { db } from "../firebaseconfig"
+import { db } from "../config/firebaseconfig"
 import { useAuth } from "./AuthContext"
 import { useCompanies } from "./CompaniesContext"
 import { generateCompanyEmail, getUserCompaniesWithEmails } from "../utils/emailHelpers"

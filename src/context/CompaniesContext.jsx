@@ -1,6 +1,6 @@
 // src/context/CompaniesContext.jsx
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
-import { db } from "../firebaseconfig";
+import { db } from "../config/firebaseconfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { getTenantCollectionPath } from "../utils/tenantUtils";
 import { useAuth } from "./AuthContext";

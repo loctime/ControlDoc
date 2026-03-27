@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../config/firebaseconfig";
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where } from "firebase/firestore";
 import { useCompanies } from "../../../context/CompaniesContext";
 import {

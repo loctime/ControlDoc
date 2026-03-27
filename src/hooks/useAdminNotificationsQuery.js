@@ -1,7 +1,7 @@
 // src/hooks/useAdminNotificationsQuery.js
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { collection, query, where, orderBy, getDocs, updateDoc, doc } from 'firebase/firestore';
-import { db } from '../firebaseconfig';
+import { db } from '../config/firebaseconfig';
 import { getTenantCollectionPath } from '../utils/tenantUtils';
 import { POLLING_INTERVALS, QUERY_DEFAULTS, MUTATION_DEFAULTS } from '../config/queryConfig';
 import { useRealtimePolling } from './useRealtimePolling';

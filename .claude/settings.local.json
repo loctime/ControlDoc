@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \":*)",
+      "Bash(__NEW_LINE_76c891d46de3aaad__ echo:*)",
+      "Bash(node -e \"const fs=require\\(''fs''\\);console.log\\(fs.existsSync\\(''./src/firebaseconfig.js''\\)?''EXISTE'':''ELIMINADO''\\);\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\);const c=fs.readFileSync\\(''./backend/firebaseconfig.js'',''utf8''\\);const exports=c.match\\(/^export.*/gm\\)||[];console.log\\(exports.join\\(''\\\\n''\\)\\);\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\);const c=fs.readFileSync\\(''./backend/middleware/authenticateFirebaseUser.js'',''utf8''\\);console.log\\(c.includes\\(''controlFileAuth.verifyIdToken''\\)?''SI usa controlFileAuth'':''NO - revisar''\\);\")"
+    ]
+  }
+}

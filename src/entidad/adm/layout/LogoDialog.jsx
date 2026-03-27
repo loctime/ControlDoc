@@ -16,7 +16,7 @@ import {
 } from "@mui/material"
 import { useEffect, useState, useRef } from "react"
 import { collection, onSnapshot } from "firebase/firestore"
-import { db } from "../../../firebaseconfig"
+import { db } from "../../../config/firebaseconfig"
 import { useAppConfig } from "../../../context/AppConfigContext"
 import { getTenantCollectionPath } from '../../../utils/tenantUtils'
 import { uploadFile } from "../../../utils/FileUploadService"

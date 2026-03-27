@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { collection, addDoc, doc, getDoc, query, where, getDocs } from 'firebase/firestore';
-import { db } from '../../firebaseconfig';
+import { db } from '../../config/firebaseconfig';
 import { getTenantCollectionPath } from '../../utils/tenantUtils';
 import { useAuth } from '../../context/AuthContext';
 

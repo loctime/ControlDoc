@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../firebaseconfig";
+import { auth } from "../../config/firebaseconfig";
 import { Link as RouterLink } from 'react-router-dom';
 
 const ForgotPassword = () => {

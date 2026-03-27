@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { Box, Typography, CircularProgress } from "@mui/material"
 import { collection, doc, setDoc, getDocs, onSnapshot, deleteDoc, getDoc } from "firebase/firestore"
-import { auth, db } from "../../../firebaseconfig"
+import { auth, db } from "../../../config/firebaseconfig"
 import { useAuth } from '../../../context/AuthContext'
 
 // Componentes reutilizables

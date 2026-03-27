@@ -1,10 +1,7 @@
 import React from 'react';
-// import useControlFileQuery from '../../hooks/useControlFileQuery'; // SDK deshabilitado temporalmente para debug
+import useControlFileQuery from '../../hooks/useControlFileQuery';
 
 export default function SaveToControlFileButton({ file, onSaved }) {
-  // SDK deshabilitado temporalmente para debug
-  throw new Error("SDK deshabilitado temporalmente para debug");
-  
   const { status, error, connect, saveFile, appDisplayName } = useControlFileQuery();
 
   const handleClick = async () => {

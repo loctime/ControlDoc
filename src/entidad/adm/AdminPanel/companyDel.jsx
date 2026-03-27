@@ -5,7 +5,7 @@ import { useCompanyList } from "../../../context/CompaniesContext"
 import { useAuth } from "../../../context/AuthContext"
 import { getFreshToken } from "../../../utils/getFreshToken"
 import { collection, getDocs, query, where } from "firebase/firestore"
-import { db } from "../../../firebaseconfig"
+import { db } from "../../../config/firebaseconfig"
 import SuperTable from "../../../components/common/superTable"
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';
 import EditCompanyModal from './EditCompanyModal';

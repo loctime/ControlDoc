@@ -6,7 +6,7 @@ import {
   TextField, MenuItem, Link, Tooltip
 } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
-import { db } from '../../../firebaseconfig';
+import { db } from '../../../config/firebaseconfig';
 import {
   collection, query, orderBy, getDocs, where
 } from 'firebase/firestore';

@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth, db } from "../../firebaseconfig";
+import { auth, db } from "../../config/firebaseconfig";
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';

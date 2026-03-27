@@ -29,7 +29,7 @@ import {
   CheckCircle,
   Error
 } from '@mui/icons-material';
-// import useControlFileQuery from '../../../hooks/useControlFileQuery'; // SDK deshabilitado temporalmente para debug
+import useControlFileQuery from '../../../hooks/useControlFileQuery';
 
 // Mapeo de iconos por tipo de archivo
 const getFileIcon = (fileName, fileType) => {
@@ -56,9 +56,6 @@ export default function SaveToControlFileDialog({
   files = [],
   onSaveComplete
 }) {
-  // SDK deshabilitado temporalmente para debug
-  throw new Error("SDK deshabilitado temporalmente para debug");
-  
   const [showAllFiles, setShowAllFiles] = useState(false);
   const [saveProgress, setSaveProgress] = useState({});
   const [isSaving, setIsSaving] = useState(false);

@@ -1,7 +1,7 @@
 //src/utils/MetadataService.js
 import { addDoc, updateDoc, doc, collection, serverTimestamp, getDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { db } from "../firebaseconfig";
+import { db } from "../config/firebaseconfig";
 import { cleanFirestoreData } from "./cleanFirestoreData";
 import { getCompanyMainUserEmail } from "./getCompanyMainUserEmail";
 import { getTenantCollectionPath } from "./tenantUtils";

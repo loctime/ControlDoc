@@ -6,7 +6,7 @@ import {
 import { AdminPanelSettings as AdminIcon, Security as SecurityIcon } from "@mui/icons-material";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
-import { auth, db } from "../../firebaseconfig";
+import { auth, db } from "../../config/firebaseconfig";
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { getTenantCollectionPath, getCurrentTenantId } from "../../utils/tenantUtils";

@@ -67,3 +67,5 @@ temp/
 *.pem
 *.key
 *.crt
+
+serviceAccountKey-controlfile.json

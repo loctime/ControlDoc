@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../../firebaseconfig';
+import { db } from '../../../config/firebaseconfig';
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';
 
 export function useDocumentAll({ isAdmin, selectedCompanyId, assignedCompanyIds = null, sortBy = 'date', sortDirection = 'desc', refreshKey = 0 }) {

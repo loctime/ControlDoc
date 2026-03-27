@@ -1,7 +1,7 @@
 // src/context/AppConfigContext.jsx
 import { createContext, useContext, useState, useEffect } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { db } from '../firebaseconfig';
+import { db } from '../config/firebaseconfig';
 import { getTenantCollectionPath } from '../utils/tenantUtils';
 
 export const AppConfigContext = createContext();

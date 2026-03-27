@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import { useCompanies } from "../../../../context/CompaniesContext";
 import { useAuth } from "../../../../context/AuthContext";
-import { db } from "../../../../firebaseconfig";
+import { db } from "../../../../config/firebaseconfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { getTenantCollectionPath } from "../../../../utils/tenantUtils";
 import ExampleUploader from "./ExampleUploader";

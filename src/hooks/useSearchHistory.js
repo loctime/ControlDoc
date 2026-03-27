@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
-import { db } from '../firebaseconfig';
+import { db } from '../config/firebaseconfig';
 import { getTenantCollectionPath } from '../utils/tenantUtils';
 import { useAuth } from '../context/AuthContext';
 

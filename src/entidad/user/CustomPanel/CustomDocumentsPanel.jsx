@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { cleanFirestoreData } from "../../../utils/cleanFirestoreData";
 import { useContext } from 'react';
-import { auth } from "../../../firebaseconfig";
+import { auth } from "../../../config/firebaseconfig";
 import { useDocumentEntityTypes } from '../../../utils/useDocumentEntityTypes';
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';
 import { useClientNamesMap } from '../../../utils/getClientName';
@@ -21,7 +21,7 @@ import {
   Image as ImageIcon,
   Warning as WarningIcon
 } from "@mui/icons-material";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../config/firebaseconfig";
 import {
   collection, query, where, getDocs, addDoc, updateDoc, doc, serverTimestamp, onSnapshot
 } from "firebase/firestore";

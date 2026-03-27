@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton } from '@mui/material';
 import { CloudUpload } from '@mui/icons-material';
-// import useControlFileQuery from '../../hooks/useControlFileQuery'; // SDK deshabilitado temporalmente para debug
+import useControlFileQuery from '../../hooks/useControlFileQuery';
 
 async function fetchUrlAsFile(url, fileName = 'archivo', contentType) {
   const res = await fetch(url);
@@ -20,9 +20,6 @@ const SaveToControlFileFromUrlButton = React.forwardRef(({
   iconOnly = false,
   ...props 
 }, ref) => {
-  // SDK deshabilitado temporalmente para debug
-  throw new Error("SDK deshabilitado temporalmente para debug");
-  
   const { status, error, connect, saveFile, appDisplayName, user } = useControlFileQuery();
 
   const handleClick = async () => {

@@ -32,7 +32,7 @@ import { useAuth } from '../../../context/AuthContext';
 import { Dialog as MuiDialog } from '@mui/material'; // Para evitar conflicto de nombres
 import { useDocumentEntityTypes } from "../../../utils/useDocumentEntityTypes";
 import BulkAddDocumentNamesDialog from './dialogs/BulkAddDocumentNamesDialog';
-import { db } from '../../../firebaseconfig';
+import { db } from '../../../config/firebaseconfig';
 import VistaPrevia from '../../../components/common/VistaPrevia';
 import { collection, getDocs, query, where, addDoc, deleteDoc, doc, limit } from 'firebase/firestore';
 import { orderBy } from 'firebase/firestore';

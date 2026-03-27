@@ -5,7 +5,7 @@ import {
   TextField, Select, MenuItem, FormControl, InputLabel,
   List, ListItem, ListItemText, Checkbox, ListItemIcon
 } from '@mui/material';
-import { db } from '../../../../firebaseconfig';
+import { db } from '../../../../config/firebaseconfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { getTenantCollectionPath } from '../../../../utils/tenantUtils';
 import { useQuery } from '@tanstack/react-query';

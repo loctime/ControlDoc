@@ -10,7 +10,7 @@ import {
 import { useAuth } from "../../../context/AuthContext"
 import { getFreshToken } from "../../../utils/getFreshToken"
 import { collection, getDocs, query, where } from "firebase/firestore"
-import { db } from "../../../firebaseconfig"
+import { db } from "../../../config/firebaseconfig"
 import { getTenantCollectionPath } from "../../../utils/tenantUtils"
 import SuperTable from "../../../components/common/superTable"
 import AdminAdd from "./adminAdd"

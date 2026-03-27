@@ -1,5 +1,5 @@
 import React from 'react';
-import { db } from '../firebaseconfig';
+import { db } from '../config/firebaseconfig';
 import { 
   collection, 
   doc, 

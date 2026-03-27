@@ -1,5 +1,5 @@
 // Autenticación secundaria para ControlFile (no interfiere con la app principal)
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 import {
   getAuth,
   GoogleAuthProvider,
@@ -32,7 +32,9 @@ function assertConfigPresent() {
 export function getControlFileFirebaseApp() {
   if (cachedApp) return cachedApp;
   assertConfigPresent();
-  cachedApp = initializeApp(CF_CONFIG, 'controlfile');
+  // Reusar app si ya fue inicializada (ej: por firebaseconfig.js)
+  const existing = getApps().find(app => app.name === 'controlfile');
+  cachedApp = existing || initializeApp(CF_CONFIG, 'controlfile');
   return cachedApp;
 }
 

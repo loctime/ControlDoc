@@ -2,19 +2,13 @@
 import React, { useState, useEffect, useRef } from "react"
 import { Box, Typography, TextField, Button, Alert, Card, CardContent, Chip, Divider, CircularProgress } from "@mui/material"
 import { useAuth } from "../../../context/AuthContext"
-import { db } from "../../../firebaseconfig"
+import { db } from "../../../config/firebaseconfig"
 import { doc, getDoc, updateDoc, collection, getDocs } from "firebase/firestore"
 import { getTenantCollectionPath } from '../../../utils/tenantUtils'
-// import useControlFileQuery from '../../../hooks/useControlFileQuery'; // SDK deshabilitado temporalmente para debug
-// import { getControlFileIdToken } from '../../../utils/ControlFileAuth'; // SDK deshabilitado temporalmente para debug
-// import { ControlFileClient } from '@controlfile/sdk' // SDK deshabilitado temporalmente para debug
+import useControlFileQuery from '../../../hooks/useControlFileQuery';
+// import { ControlFileClient } from '@controlfile/sdk' // pendiente instalar paquete
 
 export default function AdminProfilePage() {
-  // SDK deshabilitado temporalmente para debug
-  // const { user } = useAuth()
-  return <div>SDK deshabilitado temporalmente para debug</div>
-  // return <div>SDK deshabilitado temporalmente para debug</div>
-  
   const { user } = useAuth()
   const [customEmail, setCustomEmail] = useState("")
   const [savedEmail, setSavedEmail] = useState("")
@@ -22,14 +16,15 @@ export default function AdminProfilePage() {
   const [success, setSuccess] = useState("")
 
   // ControlFile integration
-  const { 
-    status: cfStatus, 
-    error: cfError, 
-    user: cfUser, 
-    connect: cfConnect, 
+  const {
+    status: cfStatus,
+    error: cfError,
+    user: cfUser,
+    connect: cfConnect,
     disconnect: cfDisconnect,
     openControlFile: cfOpenControlFile,
-    appDisplayName 
+    saveFile: cfSaveFile,
+    appDisplayName
   } = useControlFileQuery()
   const [cfConnectionSuccess, setCfConnectionSuccess] = useState("")
 
@@ -105,29 +100,7 @@ export default function AdminProfilePage() {
     setUploadResult(null)
 
     try {
-      // SDK deshabilitado temporalmente para debug
-      throw new Error("SDK deshabilitado temporalmente para debug")
-      
-      // Crear cliente SDK
-      const client = new ControlFileClient({
-        baseUrl: import.meta.env.VITE_CONTROLFILE_BACKEND_URL,
-        getAuthToken: getControlFileIdToken,
-      })
-
-      // Obtener contexto contractual de aplicación (API v1)
-      const appFiles = client.forApp('controldoc', cfUser.uid)
-
-      // Path relativo al app root: ['perfil', userId]
-      const path = ['perfil', cfUser.uid]
-
-      // Asegurar que la estructura de carpetas existe (opcional, uploadFile lo hace automáticamente)
-      await appFiles.ensurePath({ path })
-
-      // Subir archivo usando API contractual (path relativo al app root)
-      const result = await appFiles.uploadFile({
-        file: uploadFile,
-        path,
-      })
+      const result = await cfSaveFile(uploadFile, ['controldoc', 'perfil', cfUser?.uid || 'unknown'])
 
       setUploadResult({
         fileId: result.fileId || result.id || 'N/A',

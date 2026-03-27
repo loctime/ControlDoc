@@ -5,7 +5,7 @@ import {
   Button, Chip, Box, Paper, Typography
 } from '@mui/material';
 import { useSnackbar } from 'notistack';
-import { auth, db } from '../../firebaseconfig';
+import { auth, db } from '../../config/firebaseconfig';
 import { useCompanies } from '../../context/CompaniesContext';
 import { setDoc, doc, collection, getDocs, query, where, getDoc } from 'firebase/firestore';
 import { getTenantCollectionPath } from '../../utils/tenantUtils';

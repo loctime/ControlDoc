@@ -33,7 +33,7 @@ import {
   Storage as StorageIcon
 } from '@mui/icons-material';
 import { useSnackbar } from 'notistack';
-import { db } from '../../../firebaseconfig';
+import { db } from '../../../config/firebaseconfig';
 import { 
   collection, 
   doc, 

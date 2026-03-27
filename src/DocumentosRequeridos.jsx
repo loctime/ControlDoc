@@ -1,7 +1,7 @@
 // src/DocumentosRequeridos.jsx
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, addDoc } from "firebase/firestore";
-import { db } from "./firebaseconfig";
+import { db } from "./config/firebaseconfig";
 import { useAuth } from "./context/AuthContext";
 import SuperAdmin from "./SuperAdmin";
 import { getTenantCollectionPath } from "./utils/tenantUtils";

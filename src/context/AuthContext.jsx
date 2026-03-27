@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc, setDoc, onSnapshot, collection, query, where, getDocs } from "firebase/firestore";
-import { auth, db } from "../firebaseconfig";
+import { auth, db } from "../config/firebaseconfig";
 import { v4 as uuidv4 } from "uuid";
 import { getTenantCollectionPath, getCurrentTenantId } from "../utils/tenantUtils";
 

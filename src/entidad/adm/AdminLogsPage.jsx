@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from "../../firebaseconfig";
+import { db } from "../../config/firebaseconfig";
 import { format } from "date-fns";
 import { getTenantCollectionPath } from '../../utils/tenantUtils';
 

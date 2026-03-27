@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../config/firebaseconfig";
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, updateDoc } from "firebase/firestore";
 import { useCompanies } from "../../../context/CompaniesContext";
 import DocumentTemplateManager from "./DocumentTemplateManager";

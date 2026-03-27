@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../config/firebaseconfig";
 import { collection, query, where, orderBy, getDocs, updateDoc, doc } from "firebase/firestore";
 import { Box, Typography, Paper, IconButton, Stack, Button } from "@mui/material";
 import { CheckCircle, Info as InfoIcon, Replay as ReplayIcon } from "@mui/icons-material";

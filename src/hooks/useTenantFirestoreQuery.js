@@ -13,7 +13,7 @@ import {
   orderBy,
   serverTimestamp 
 } from 'firebase/firestore';
-import { db } from '../firebaseconfig';
+import { db } from '../config/firebaseconfig';
 import { getTenantCollectionPath, getTenantCollections } from '../utils/tenantUtils';
 import { MUTATION_DEFAULTS } from '../config/queryConfig';
 

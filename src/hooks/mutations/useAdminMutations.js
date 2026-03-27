@@ -1,7 +1,7 @@
 // src/hooks/mutations/useAdminMutations.js
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { doc, addDoc, updateDoc, deleteDoc, collection } from 'firebase/firestore';
-import { db } from '../../firebaseconfig';
+import { db } from '../../config/firebaseconfig';
 import { getTenantCollectionPath } from '../../utils/tenantUtils';
 import { MUTATION_DEFAULTS } from '../../config/queryConfig';
 import { adminKeys } from '../queries/useAdminQueries';

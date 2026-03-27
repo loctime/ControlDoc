@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Badge, IconButton, Tooltip, Popover, List, ListItem, ListItemText, Typography, Button, Box } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../config/firebaseconfig";
 import { collection, query, where, onSnapshot, updateDoc, doc } from "firebase/firestore";
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';
 

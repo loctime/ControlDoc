@@ -1,6 +1,6 @@
 // src/component/usuario/hooks/useDashboardDataQuery.js
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { db } from '../../../../firebaseconfig';
+import { db } from '../../../../config/firebaseconfig';
 import { collection, query, where, getDocs, doc, getDoc, onSnapshot } from 'firebase/firestore';
 import { getTenantCollectionPath } from '../../../../utils/tenantUtils';
 import { useEffect, useRef } from 'react';

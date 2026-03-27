@@ -7,7 +7,7 @@ import {
   IconButton, Collapse, FormControl, InputLabel, Select, MenuItem
 } from '@mui/material';
 import { ExpandMore, ExpandLess, CheckCircle, Cancel, Download } from '@mui/icons-material';
-import { db } from '../../../firebaseconfig';
+import { db } from '../../../config/firebaseconfig';
 import { getTenantCollectionPath } from '../../../utils/tenantUtils';
 import VistaDocumentoSubido from '../VistaDocumentoSubido';
 import handleApproveOrReject from '../handleApproveOrReject';
