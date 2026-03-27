@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { getDocs, query, collection, where, getDoc, updateDoc, addDoc } from 'firebase/firestore';
-import { db } from '../../../firebaseconfig.js';
+import { db } from '../../../config/firebaseconfig.js';
 import { getDeadlineColor } from '../../../utils/getDeadlineUtils.jsx';
 import { 
   Paper, Typography, Button, Stack, 

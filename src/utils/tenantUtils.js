@@ -70,7 +70,7 @@ export async function isTenantValid() {
   }
 
   try {
-    const { db } = await import('../firebaseconfig');
+    const { db } = await import('../config/firebaseconfig');
     const { doc, getDoc, setDoc } = await import('firebase/firestore');
 
     const tenantRef = doc(db, 'tenants', tenantId);
@@ -115,7 +115,7 @@ export async function getTenantInfo() {
   }
 
   try {
-    const { db } = await import('../firebaseconfig');
+    const { db } = await import('../config/firebaseconfig');
     const { doc, getDoc } = await import('firebase/firestore');
 
     const tenantDoc = await getDoc(doc(db, 'tenants', tenantId));
@@ -143,7 +143,7 @@ export async function resolveTenantByCustomDomain(hostname) {
     const canonical = resolveTenantIdFromHostname(host);
     if (canonical) return canonical;
 
-    const { db } = await import('../firebaseconfig');
+    const { db } = await import('../config/firebaseconfig');
     const { collection, query, where, getDocs, limit } = await import('firebase/firestore');
 
     const q = query(

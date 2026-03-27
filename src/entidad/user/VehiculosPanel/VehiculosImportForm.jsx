@@ -142,7 +142,7 @@ const VehiculosImportForm = ({ onVehiculosAdded }) => {
 
     try {
       // Importar la lógica de Firebase
-      const { db } = await import('../../../firebaseconfig.js');
+      const { db } = await import('../../../config/firebaseconfig.js');
       const { collection, addDoc, serverTimestamp, query, where, getDocs } = await import('firebase/firestore');
       const { getTenantCollectionPath } = await import('../../../utils/tenantUtils');
 
@@ -317,7 +317,7 @@ const VehiculosImportForm = ({ onVehiculosAdded }) => {
 
     try {
       // Importar la lógica de Firebase
-      const { db } = await import('../../../firebaseconfig.js');
+      const { db } = await import('../../../config/firebaseconfig.js');
       const { collection, addDoc, serverTimestamp, query, where, getDocs } = await import('firebase/firestore');
       const { getTenantCollectionPath } = await import('../../../utils/tenantUtils');
 

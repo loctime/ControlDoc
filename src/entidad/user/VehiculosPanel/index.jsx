@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import EditDeleteActions from '../../../components/EditDeleteActions.jsx';
 import Swal from 'sweetalert2';
-import { db } from '../../../firebaseconfig.js';
+import { db } from '../../../config/firebaseconfig.js';
 import { doc, deleteDoc, getDoc, updateDoc, collection, addDoc } from 'firebase/firestore';
 import VehiculosForm from './VehiculosForm.jsx';
 import VehiculosImportForm from './VehiculosImportForm.jsx';
