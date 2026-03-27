@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 🚫 SUPRESIÓN AGRESIVA DE FUENTES PDF.js - DEBE IR PRIMERO -->
+    <link rel="stylesheet" href="/pdf-font-override.css" />
+    <!-- 🔧 Polyfill para Request/Response API -->
+    <script>
+      (function() {
+        'use strict';
+        // Asegurar que Request y Response estén disponibles globalmente
+        // Esto previene el error "Cannot destructure property 'Request' of 'undefined'"
+        if (typeof globalThis !== 'undefined') {
+          // Asegurar que Request esté disponible
+          if (!globalThis.Request) {
+            try {
+              // Intentar usar el Request nativo del navegador
+              if (typeof Request !== 'undefined') {
+                globalThis.Request = Request;
+              } else if (typeof window !== 'undefined' && window.Request) {
+                globalThis.Request = window.Request;
+              }
+            } catch (e) {
+              console.warn('Request no disponible nativamente');
+            }
+          }
+          // Asegurar que Response esté disponible
+          if (!globalThis.Response) {
+            try {
+              if (typeof Response !== 'undefined') {
+                globalThis.Response = Response;
+              } else if (typeof window !== 'undefined' && window.Response) {
+                globalThis.Response = window.Response;
+              }
+            } catch (e) {
+              console.warn('Response no disponible nativamente');
+            }
+          }
+        }
+        // Asegurar que Request y Response estén en window también
+        if (typeof window !== 'undefined') {
+          if (!window.Request && typeof Request !== 'undefined') {
+            window.Request = Request;
+          }
+          if (!window.Response && typeof Response !== 'undefined') {
+            window.Response = Response;
+          }
+        }
+      })();
+    </script>
+    <script>
+      // SUPRESIÓN AGRESIVA DE ADVERTENCIAS DE FUENTES PDF.js
+      // Este script se ejecuta ANTES que PDF.js para interceptar todas las advertencias
+      
+      (function() {
+        'use strict';
+        
+        console.log('🔇 Iniciando supresión agresiva de advertencias de fuentes PDF.js...');
+        
+        // Función para detectar advertencias de fuentes
+        const isFontWarning = (message) => {
+          if (!message || typeof message !== 'string') return false;
+          const lowerMessage = message.toLowerCase();
+          return (
+            lowerMessage.includes('arialroundedmtbold') ||
+            lowerMessage.includes('arialroundedmt') ||
+            lowerMessage.includes('arialroundedmtpro') ||
+            lowerMessage.includes('cannot load system font') ||
+            lowerMessage.includes('installing it could help') ||
+            lowerMessage.includes('pdf rendering') ||
+            lowerMessage.includes('system font')
+          );
+        };
+
+        // Suprimir console.warn
+        const originalWarn = console.warn;
+        console.warn = function(...args) {
+          const message = args.join(' ');
+          if (isFontWarning(message)) {
+            return; // No mostrar advertencias de fuentes
+          }
+          originalWarn.apply(console, args);
+        };
+
+        // Suprimir console.error
+        const originalError = console.error;
+        console.error = function(...args) {
+          const message = args.join(' ');
+          if (isFontWarning(message)) {
+            return; // No mostrar errores de fuentes
+          }
+          originalError.apply(console, args);
+        };
+
+        // Suprimir console.log
+        const originalLog = console.log;
+        console.log = function(...args) {
+          const message = args.join(' ');
+          if (isFontWarning(message)) {
+            return; // No mostrar logs de fuentes
+          }
+          originalLog.apply(console, args);
+        };
+
+        // Suprimir console.info
+        const originalInfo = console.info;
+        console.info = function(...args) {
+          const message = args.join(' ');
+          if (isFontWarning(message)) {
+            return; // No mostrar info de fuentes
+          }
+          originalInfo.apply(console, args);
+        };
+
+        // Interceptar Web Workers
+        const originalWorker = window.Worker;
+        window.Worker = function(scriptURL, options) {
+          const worker = new originalWorker(scriptURL, options);
+          
+          // Interceptar mensajes del worker
+          const originalPostMessage = worker.postMessage;
+          worker.postMessage = function(message, transfer) {
+            let messageString = '';
+            try {
+              messageString = typeof message === 'string' ? message : JSON.stringify(message);
+            } catch (e) {
+              messageString = String(message);
+            }
+            
+            if (isFontWarning(messageString)) {
+              return; // No enviar mensajes de fuentes
+            }
+            originalPostMessage.call(this, message, transfer);
+          };
+          
+          return worker;
+        };
+
+        // Interceptar addEventListener para mensajes
+        const originalAddEventListener = window.addEventListener;
+        window.addEventListener = function(type, listener, options) {
+          if (type === 'message') {
+            const wrappedListener = function(event) {
+              if (event.data) {
+                let dataString = '';
+                try {
+                  dataString = typeof event.data === 'string' ? event.data : JSON.stringify(event.data);
+                } catch (e) {
+                  dataString = String(event.data);
+                }
+                
+                if (isFontWarning(dataString)) {
+                  return; // No procesar mensajes de fuentes
+                }
+              }
+              listener.call(this, event);
+            };
+            return originalAddEventListener.call(this, type, wrappedListener, options);
+          }
+          return originalAddEventListener.call(this, type, listener, options);
+        };
+
+        // Interceptar postMessage
+        const originalPostMessage = window.postMessage;
+        window.postMessage = function(message, targetOrigin, transfer) {
+          let messageString = '';
+          try {
+            messageString = typeof message === 'string' ? message : JSON.stringify(message);
+          } catch (e) {
+            messageString = String(message);
+          }
+          
+          if (isFontWarning(messageString)) {
+            return; // No enviar mensajes de fuentes
+          }
+          originalPostMessage.call(this, message, targetOrigin, transfer);
+        };
+
+        // Interceptar onmessage
+        if (window.onmessage) {
+          const originalOnMessage = window.onmessage;
+          window.onmessage = function(event) {
+            if (event.data) {
+              let dataString = '';
+              try {
+                dataString = typeof event.data === 'string' ? event.data : JSON.stringify(event.data);
+              } catch (e) {
+                dataString = String(event.data);
+              }
+              
+              if (isFontWarning(dataString)) {
+                return; // No procesar mensajes de fuentes
+              }
+            }
+            originalOnMessage.call(this, event);
+          };
+        }
+
+        // Interceptar Object.defineProperty para onmessage
+        const originalDefineProperty = Object.defineProperty;
+        Object.defineProperty = function(obj, prop, descriptor) {
+          if (prop === 'onmessage' && descriptor.value) {
+            const originalValue = descriptor.value;
+            descriptor.value = function(event) {
+              if (event.data) {
+                let dataString = '';
+                try {
+                  dataString = typeof event.data === 'string' ? event.data : JSON.stringify(event.data);
+                } catch (e) {
+                  dataString = String(event.data);
+                }
+                
+                if (isFontWarning(dataString)) {
+                  return; // No procesar mensajes de fuentes
+                }
+              }
+              originalValue.call(this, event);
+            };
+          }
+          return originalDefineProperty.call(this, obj, prop, descriptor);
+        };
+
+        // Interceptar cualquier propiedad que pueda contener mensajes de fuentes
+        const originalSetAttribute = Element.prototype.setAttribute;
+        Element.prototype.setAttribute = function(name, value) {
+          if (name === 'onmessage' && typeof value === 'string' && isFontWarning(value)) {
+            return; // No establecer onmessage con advertencias de fuentes
+          }
+          originalSetAttribute.call(this, name, value);
+        };
+
+        console.log('✅ Supresión agresiva de advertencias de fuentes PDF.js activada');
+      })();
+    </script>
+
+    <!-- 🔍 SEO -->
+    <meta name="description" content="ControlDoc es una plataforma para la gestión documental profesional, cumplimiento normativo y trazabilidad de documentos.">
+    <link rel="canonical" href="https://controldoc.app/" />
+
+    <!-- 🧠 Accesibilidad y compatibilidad -->
+    <meta name="theme-color" content="#1976d2" />
+    <meta name="robots" content="index, follow" />
+    <meta name="emotion-insertion-point" content="" />
+
+    <!-- 📱 Icono -->
+    <link rel="icon" href="/logo2.png" type="image/png" />
+
+    <!-- ⚡️ Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- 🔗 Redes Sociales (Open Graph) -->
+    <meta property="og:title" content="ControlDoc - Gestión Documental Inteligente" />
+    <meta property="og:description" content="Simplificá el control de documentos, alertas, vencimientos y aprobaciones con ControlDoc." />
+    <meta property="og:image" content="https://controldoc.app/assets/logo2.png" />
+    <meta property="og:url" content="https://controldoc.app/" />
+    <meta property="og:type" content="website" />
+
+    <title>ControlDoc</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Configuración global para React -->
+    <script>
+      // Asegurar que React esté disponible globalmente
+      window.React = window.React || {};
+      window.React.useState = window.React.useState || function() { throw new Error('useState not loaded yet'); };
+      window.React.useEffect = window.React.useEffect || function() { throw new Error('useEffect not loaded yet'); };
+      window.React.useContext = window.React.useContext || function() { throw new Error('useContext not loaded yet'); };
+      window.React.useRef = window.React.useRef || function() { throw new Error('useRef not loaded yet'); };
+      window.React.useCallback = window.React.useCallback || function() { throw new Error('useCallback not loaded yet'); };
+      window.React.useMemo = window.React.useMemo || function() { throw new Error('useMemo not loaded yet'); };
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

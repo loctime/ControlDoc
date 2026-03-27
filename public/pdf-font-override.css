@@ -1,0 +1,68 @@
+/* Override de fuentes para PDF.js - Forzar uso de fuentes del sistema */
+
+/* Forzar uso de fuentes del sistema para todas las fuentes problemáticas */
+@font-face {
+  font-family: 'ArialRoundedMTBold';
+  src: local('Arial-Bold'), local('Arial Bold'), local('Arial'), local('Helvetica-Bold'), local('Helvetica'), local('sans-serif') !important;
+  font-weight: bold !important;
+  font-style: normal !important;
+  font-display: swap !important;
+}
+
+@font-face {
+  font-family: 'ArialRoundedMT';
+  src: local('Arial'), local('Helvetica'), local('sans-serif') !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-display: swap !important;
+}
+
+@font-face {
+  font-family: 'ArialRoundedMTPro';
+  src: local('Arial'), local('Helvetica'), local('sans-serif') !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-display: swap !important;
+}
+
+@font-face {
+  font-family: 'ArialRoundedMTPro-Bold';
+  src: local('Arial-Bold'), local('Arial Bold'), local('Arial'), local('Helvetica-Bold'), local('Helvetica'), local('sans-serif') !important;
+  font-weight: bold !important;
+  font-style: normal !important;
+  font-display: swap !important;
+}
+
+@font-face {
+  font-family: 'ArialRoundedMTPro-Regular';
+  src: local('Arial'), local('Helvetica'), local('sans-serif') !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-display: swap !important;
+}
+
+/* Forzar uso de fuentes del sistema en todos los elementos PDF */
+canvas {
+  font-family: Arial, Helvetica, sans-serif !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Aplicar fuentes del sistema a cualquier elemento que pueda usar fuentes problemáticas */
+* {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Específicamente para elementos PDF */
+[data-pdf-annotator] *,
+.pdf-annotator *,
+.pdf-viewer * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Forzar fuentes del sistema en el contexto de PDF.js */
+#pdf-container *,
+.pdf-container * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}

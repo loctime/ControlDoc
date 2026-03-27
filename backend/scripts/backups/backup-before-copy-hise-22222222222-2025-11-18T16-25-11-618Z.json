@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-11-18T16:25:11.618Z",
+  "tenantId": "hise",
+  "targetCompanyId": "22222222222",
+  "data": {
+    "requiredDocuments": [],
+    "uploadedDocuments": [],
+    "approvedDocuments": [],
+    "personal": [],
+    "vehiculos": []
+  }
+}

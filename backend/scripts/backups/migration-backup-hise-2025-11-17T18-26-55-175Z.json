@@ -1,0 +1,1456 @@
+{
+  "timestamp": "2025-11-17T18:26:55.175Z",
+  "tenantId": "hise",
+  "mainCompanyId": "20373003403",
+  "clientId": "TNKK53JbO5G5NOHcUZSC",
+  "uploadedDocuments": [
+    {
+      "id": "3pdiWmwAO0yg8sBjwixN",
+      "name": "Check list de Equipos",
+      "documentType": "Zx3mvcn19BLnP3UzIHty",
+      "fileName": "Recibo_de__1763155162737.pdf",
+      "fileType": "application/pdf",
+      "fileSize": 385202,
+      "fileURL": "https://cdn.controldoc.app/file/controldocdemo/companyDocuments/Recibo_de__1763155162737.pdf",
+      "uploadedAt": {
+        "_seconds": 1763155163,
+        "_nanoseconds": 646000000
+      },
+      "uploadedBy": "wu68cboAn3bFDHDZV7NAP8X3fUW2",
+      "uploadedByEmail": "1@gmail.com",
+      "comentario": "",
+      "vencimiento": "2025-11-29T00:00:00.000Z",
+      "expirationDate": "2025-11-29T00:00:00.000Z",
+      "entityType": "employee",
+      "entityId": "20373003403",
+      "entityName": "",
+      "category": "",
+      "companyId": "20373003403",
+      "requiredDocumentId": "Zx3mvcn19BLnP3UzIHty",
+      "versionNumber": 1,
+      "versionId": null,
+      "subversion": 1,
+      "versionString": "1.1",
+      "reviewedAt": {
+        "_seconds": 1763400718,
+        "_nanoseconds": 160000000
+      },
+      "adminComment": "Documento enviado a tercero para aprobación",
+      "reviewedBy": "licvidalfernando@gmail.com",
+      "version": 1,
+      "status": "En proceso"
+    },
+    {
+      "id": "hk7QlWfUdbEfifsULRo6",
+      "name": "altura",
+      "documentType": "FA6MlpEVHTcwGJ6ib3qi",
+      "fileName": "Captura_de_1761698497156.png",
+      "fileType": "image/png",
+      "fileSize": 46975,
+      "fileURL": "https://cdn.controldoc.app/file/controldocdemo/companyDocuments/Captura_de_1761698497156.png",
+      "uploadedAt": {
+        "_seconds": 1761698497,
+        "_nanoseconds": 890000000
+      },
+      "uploadedBy": "wu68cboAn3bFDHDZV7NAP8X3fUW2",
+      "uploadedByEmail": "1@gmail.com",
+      "comentario": "",
+      "vencimiento": "2026-12-20T00:00:00.000Z",
+      "entityType": "employee",
+      "entityId": "2f80LjoVxAphI2Tr6PEL",
+      "entityName": "pepe lopez",
+      "category": "",
+      "companyId": "20373003403",
+      "requiredDocumentId": "FA6MlpEVHTcwGJ6ib3qi",
+      "versionNumber": 1,
+      "versionString": "1.0",
+      "versionId": null,
+      "subversion": 0,
+      "reviewedAt": {
+        "_seconds": 1761698541,
+        "_nanoseconds": 415000000
+      },
+      "reviewedBy": "d@gmail.com",
+      "version": 1,
+      "expirationDate": {
+        "_seconds": 1797724800,
+        "_nanoseconds": 0
+      },
+      "status": "Aprobado"
+    }
+  ],
+  "approvedDocuments": [
+    {
+      "id": "1eLus5JE62V7buuHGZbm",
+      "vencimiento": "2026-12-20T00:00:00.000Z",
+      "entityType": "employee",
+      "entityId": "T2Ny5j3ydmFlGhNVXaT9",
+      "versionNumber": 1,
+      "status": "Aprobado",
+      "fileType": "application/pdf",
+      "uploadedAt": {
+        "_seconds": 1761696549,
+        "_nanoseconds": 971000000
+      },
+      "entityName": "diego bewr",
+      "category": "",
+      "versionId": "737e2d7b-08b8-4e82-8821-403524756f94",
+      "companyId": "20373003403",
+      "uploadedBy": "wu68cboAn3bFDHDZV7NAP8X3fUW2",
+      "versionString": "1.0",
+      "fileName": "altura.pdf",
+      "expirationDate": {
+        "_seconds": 1794441600,
+        "_nanoseconds": 0
+      },
+      "requiredDocumentId": "FA6MlpEVHTcwGJ6ib3qi",
+      "fileURL": "https://cdn.controldoc.app/file/controldocdemo/empresas/20373003403/altura_1761698428393.pdf",
+      "uploadedByEmail": "1@gmail.com",
+      "comentario": "",
+      "fileSize": 17885,
+      "documentType": "FA6MlpEVHTcwGJ6ib3qi",
+      "name": "altura",
+      "versionTimestamp": {
+        "_seconds": 1761698424,
+        "_nanoseconds": 415000000
+      },
+      "versionAuthor": "d@gmail.com",
+      "versionAction": "Aprobación",
+      "versionComment": "Aprobado sin comentario",
+      "previousVersionId": null,
+      "version": 1,
+      "subversion": 0,
+      "companyName": "dieguito",
+      "reviewedAt": {
+        "_seconds": 1761698424,
+        "_nanoseconds": 415000000
+      },
+      "reviewedBy": "d@gmail.com",
+      "documentName": "altura",
+      "originalName": "altura",
+      "originalId": "rCWrwkqpyfTAq3H1lg5h",
+      "copiedAt": {
+        "_seconds": 1761698424,
+        "_nanoseconds": 415000000
+      },
+      "size": 32570,
+      "tags": [],
+      "versionHistory": [
+        {
+          "versionId": "737e2d7b-08b8-4e82-8821-403524756f94",
+          "timestamp": {
+            "_seconds": 1761698424,
+            "_nanoseconds": 415000000
+          },
+          "action": "approved",
+          "by": "d@gmail.com",
+          "expirationDate": {
+            "_seconds": 1794441600,
+            "_nanoseconds": 0
+          }
+        }
+      ],
+      "smartBackup": {
+        "uploadBy": "d@gmail.com",
+        "createAt": "2025-10-29T01:28:14.954Z",
+        "smartBackupURL": "https://cdn.controldoc.app/file/controldocdemo/Admin/backups/smart_back_1761701293719.zip",
+        "smartBackupId": "smart_backup_2025-10-29.zip"
+      },
+      "generalBackup": {
+        "uploadBy": "d@gmail.com",
+        "createAt": "2025-10-29T01:29:05.273Z",
+        "backupURL": "https://cdn.controldoc.app/file/controldocdemo/Admin/backups/backup_202_1761701344056.zip",
+        "backupId": "backup_2025-10-29.zip"
+      }
+    },
+    {
+      "id": "ExZF7nEe9z6Ijn07eAyA",
+      "expirationDate": {
+        "_seconds": 1797724800,
+        "_nanoseconds": 0
+      },
+      "entityId": "2f80LjoVxAphI2Tr6PEL",
+      "versionId": "71c94302-723a-4334-9b42-bf4ed1994c66",
+      "companyId": "20373003403",
+      "fileURL": "https://cdn.controldoc.app/file/controldocdemo/empresas/20373003403/altura_1761698547123.pdf",
+      "category": "",
+      "uploadedBy": "wu68cboAn3bFDHDZV7NAP8X3fUW2",
+      "requiredDocumentId": "FA6MlpEVHTcwGJ6ib3qi",
+      "versionString": "1.0",
+      "versionNumber": 1,
+      "comentario": "",
+      "status": "Aprobado",
+      "documentType": "FA6MlpEVHTcwGJ6ib3qi",
+      "entityName": "pepe lopez",
+      "entityType": "employee",
+      "fileSize": 46975,
+      "name": "altura",
+      "fileName": "altura.pdf",
+      "uploadedAt": {
+        "_seconds": 1761698497,
+        "_nanoseconds": 890000000
+      },
+      "fileType": "application/pdf",
+      "vencimiento": "2026-12-20T00:00:00.000Z",
+      "uploadedByEmail": "1@gmail.com",
+      "versionTimestamp": {
+        "_seconds": 1761698543,
+        "_nanoseconds": 305000000
+      },
+      "versionAuthor": "d@gmail.com",
+      "versionAction": "Aprobación",
+      "versionComment": "Aprobado sin comentario",
+      "previousVersionId": null,
+      "version": 1,
+      "subversion": 0,
+      "companyName": "dieguito",
+      "reviewedAt": {
+        "_seconds": 1761698543,
+        "_nanoseconds": 305000000
+      },
+      "reviewedBy": "d@gmail.com",
+      "documentName": "altura",
+      "originalName": "altura",
+      "originalId": "hk7QlWfUdbEfifsULRo6",
+      "copiedAt": {
+        "_seconds": 1761698543,
+        "_nanoseconds": 305000000
+      },
+      "size": 65201,
+      "tags": [],
+      "versionHistory": [
+        {
+          "versionId": "71c94302-723a-4334-9b42-bf4ed1994c66",
+          "timestamp": {
+            "_seconds": 1761698543,
+            "_nanoseconds": 305000000
+          },
+          "action": "approved",
+          "by": "d@gmail.com",
+          "expirationDate": {
+            "_seconds": 1797724800,
+            "_nanoseconds": 0
+          }
+        }
+      ],
+      "smartBackup": {
+        "uploadBy": "d@gmail.com",
+        "createAt": "2025-10-29T01:28:16.703Z",
+        "smartBackupURL": "https://cdn.controldoc.app/file/controldocdemo/Admin/backups/smart_back_1761701293719.zip",
+        "smartBackupId": "smart_backup_2025-10-29.zip"
+      },
+      "generalBackup": {
+        "uploadBy": "d@gmail.com",
+        "createAt": "2025-10-29T01:29:05.790Z",
+        "backupURL": "https://cdn.controldoc.app/file/controldocdemo/Admin/backups/backup_202_1761701344056.zip",
+        "backupId": "backup_2025-10-29.zip"
+      }
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "76jwmXEEBHe0bUf7ysf9",
+      "name": "Recibo de sueldo firmado por el empleado |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2025-12-05T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "77MS4eem9nF6Jfl9JSCX",
+      "name": "Manejo defensivo |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2027-04-26T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "7HgVKMAPLWBwkEsFub3P",
+      "name": "Constancia Acreditación Bancaria ypf",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "86fuALT15xsAO1CyrTUp",
+      "name": "Póliza de seguro automotor 3029 | Proyecto RDA – PLANTA CPF |",
+      "entityType": "vehicle",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "9ddg3hdUgHmVnKtpAE2P",
+      "name": "Permisos de Trabajo (excavación, altura, entre otros)",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "no-deadline",
+        "date": null
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "Ae1eMDpvmT6cIigHgpgl",
+      "name": "Check list de Equipos, Vehículos y Maquinas eléctricas, Manuales y Neumáticas 3029 | Proyecto RDA – PLANTA CPF",
+      "entityType": "vehicle",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "no-deadline",
+        "date": null
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "AvHz2UgeSQlzC6vCvLpE",
+      "name": "presentación y pago Formulario 931 –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "no-deadline",
+        "date": null
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "CmEHNXnLP8troLM508AB",
+      "name": "Entrega Tacógrafo con GPS satelital |",
+      "entityType": "vehicle",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2028-11-30T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "D0xGohFK3XBe5mU8u0k0",
+      "name": "Copia y pago de matrícula del responsable de Higiene y Seguridad",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2026-01-01T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "DmXJlTzhxDx0o4h0vwej",
+      "name": "Contrato afiliación/Póliza ART –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "F1fFtkEvIWSvZ7JghI7u",
+      "name": "Permisos de Trabajo (excavación, altura, entre otros)",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "no-deadline",
+        "date": null
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "F9aszj5Jv29dzRyr0sUU",
+      "name": "Anexo B.9 + Examen médico completo – MAXIMIA SA – 3029 – RDA – CPF |",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2026-04-09T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "FA6MlpEVHTcwGJ6ib3qi",
+      "name": "altura",
+      "entityType": "employee",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "exampleImage": "https://cdn.controldoc.app/file/controldocdemo/admin/document_examples/new_robot_1761696035799.png",
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "NV9OqxZPAMWH4AHwX41Zt4O613E3",
+        "realemail": "",
+        "email": "d@gmail.com"
+      },
+      "createdAt": "2025-10-29T00:00:45.771Z",
+      "origen": "frontend",
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "NV9OqxZPAMWH4AHwX41Zt4O613E3",
+        "realemail": "d@gmail.com",
+        "email": "d@gmail.com"
+      },
+      "expirationDate": "2026-12-20T00:00:00.000Z",
+      "rechazadoPor": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "email": "licvidalfernando@gmail.com",
+        "realemail": ""
+      },
+      "rechazadoAt": "2025-11-13T06:28:37.327Z",
+      "adminComment": "fue de prueba",
+      "subversion": 0,
+      "aprobadoPor": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "email": "licvidalfernando@gmail.com",
+        "realemail": ""
+      },
+      "status": "Aprobado",
+      "versionString": "6.0",
+      "aprobadoAt": "2025-11-17T16:37:50.300Z",
+      "deadline": {
+        "date": "2025-11-22T00:00:00.000Z",
+        "status": "pending"
+      },
+      "version": 6
+    },
+    {
+      "id": "G9LyGfca8R0Xx7rqbCfr",
+      "name": "Póliza de Art con cláusula de no repetición a favor de YPF (30-54668997-9) y A-EVANGELISTA SA (30-68521819-09) (NO CERTIFICADO) . ypf",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "no-deadline",
+        "date": null
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "HFFzr7udbNMc3Al0YIFg",
+      "name": "Inclusión Detalle 931 ypf",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.420Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "J9iduQwvZTliQTegTVDg",
+      "name": "Planillas de AST (Análisis seguro de trabajo) 3029 | Proyecto RDA – PLANTA CPF",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2025-10-14T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "JiacLCQcgIgeDwmW2xJj",
+      "name": "DDJJ",
+      "entityType": "employee",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "exampleImage": "https://cdn.controldoc.app/file/controldocdemo/admin/document_examples/Certificad_1763320019746.pdf",
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "createdAt": "2025-11-16T19:07:08.195Z",
+      "origen": "frontend",
+      "appliesTo": {
+        "main": true,
+        "clients": null
+      },
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "licvidalfernando@gmail.com",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "status": "Pendiente",
+      "aprobadoPor": {
+        "uid": "",
+        "email": "",
+        "realemail": ""
+      },
+      "expirationDate": "2025-11-30T00:00:00.000Z",
+      "deadline": {
+        "date": "2025-11-30T00:00:00.000Z",
+        "status": "pending"
+      },
+      "version": 1
+    },
+    {
+      "id": "K8OxXGRN7v1uHaIgaeYI",
+      "name": "Libre deuda sindical Petroleros –",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2025-11-09T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "LX7KwlryfQVvM91n0QqV",
+      "name": "Planillas de AST (Análisis seguro de trabajo) 3029 | Proyecto RDA – PLANTA CPF",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2025-10-15T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "LawAVEC7oFJNryzf0DXj",
+      "name": "Comprobante Pago Seguro Responsabilidad Civil General 3029 | Proyecto RDA – PLANTA CPF –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2025-12-04T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "PB6x5mbzWLBwitcH3xbE",
+      "name": "Constancia de entrega de EPP y ropa de trabajo según resolución 299/11 |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2026-01-31T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "QM3yVbQVxTHDlFpdy6U3",
+      "name": "Fotocopia DNI | ✅ | ---",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2029-10-19T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "QuleQVv9g4YXDtlAhQzh",
+      "name": "Alta temprana en ARCA firmada por el empleado |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2029-11-19T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "URQBZ3r7pni1cffPdZX3",
+      "name": "Constancia CUIL | ✅ | ---",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2029-10-19T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "UsNpt292M3544iHhqT6I",
+      "name": "VTV/RTO |",
+      "entityType": "vehicle",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2026-04-04T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.420Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "Yfhb9wHnJvKrR0ennLFj",
+      "name": "Título de propiedad o cédula verde |",
+      "entityType": "vehicle",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2028-05-31T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "Zx3mvcn19BLnP3UzIHty",
+      "name": "Check list de Equipos",
+      "entityType": "employee",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "exampleImage": "https://cdn.controldoc.app/file/controldocdemo/admin/document_examples/Captura_de_1763149540164.png",
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "createdAt": "2025-11-14T19:45:50.565Z",
+      "origen": "frontend",
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "licvidalfernando@gmail.com",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "aprobadoPor": {
+        "uid": "",
+        "email": "",
+        "realemail": ""
+      },
+      "expirationDate": "2025-11-29T00:00:00.000Z",
+      "version": 1,
+      "subversion": 1,
+      "versionString": "1.1",
+      "rechazadoPor": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "email": "licvidalfernando@gmail.com",
+        "realemail": ""
+      },
+      "rechazadoAt": "2025-11-17T17:32:00.680Z",
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "status": "Rechazado"
+    },
+    {
+      "id": "cEVZZU656wC7ruzx8tB9",
+      "name": "Aviso de inicio de Obra",
+      "entityType": "employee",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "exampleImage": "https://cdn.controldoc.app/file/controldocdemo/admin/document_examples/Certificad_1763157269072.pdf",
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "createdAt": "2025-11-14T21:54:35.242Z",
+      "origen": "frontend",
+      "appliesTo": {
+        "main": true,
+        "clients": null
+      },
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "licvidalfernando@gmail.com",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "status": "Pendiente",
+      "aprobadoPor": {
+        "uid": "",
+        "email": "",
+        "realemail": ""
+      },
+      "expirationDate": "2025-12-02T00:00:00.000Z",
+      "deadline": {
+        "date": "2025-12-02T00:00:00.000Z",
+        "status": "pending"
+      },
+      "version": 1
+    },
+    {
+      "id": "cGuzg9pTbqbKaMS9IHGV",
+      "name": "Registro de Capacitación mensual según plan |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2025-10-15T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "e9og0GwWc9c07cVvCcbc",
+      "name": "PRESENTACION FORMULARIO 931 ypf",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "eIuPQ64UMojJIOVwOKqt",
+      "name": "Nómina personal F931 |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "fWTA4H6Jb3TJbRc3n59E",
+      "name": "Reporte mensual estadístico (según formato de cliente) –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2025-09-26T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "gA6qTslEhxJg35crQ87U",
+      "name": "Comprobante Pago del Seguro Automotor 3029 | Proyecto RDA – PLANTA CPF |",
+      "entityType": "vehicle",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2025-11-08T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "hExeivXSsh9dkew6nf1q",
+      "name": "Plan anual de Capacitación –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2025-12-31T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "ipYST396MyZakU3XJUJm",
+      "name": "Lic. Nacional Conducir |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2026-02-10T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "jNJWahVOccC6YWYqkrsm",
+      "name": "Certificado con nómina de seguro de vida obligatorio |",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "no-deadline",
+        "date": null
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "jOtL3l1EZhzS1nd4AKhI",
+      "name": "Alta temprana en ARCA firmada por el empleado |",
+      "entityType": "employee",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "exampleImage": "https://cdn.controldoc.app/file/controldocdemo/admin/document_examples/Captura_de_1763104639298.png",
+      "exampleComment": "el dash",
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "createdAt": "2025-11-14T07:17:52.728Z",
+      "origen": "frontend",
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "licvidalfernando@gmail.com",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "status": "Pendiente",
+      "aprobadoPor": {
+        "uid": "",
+        "email": "",
+        "realemail": ""
+      },
+      "expirationDate": "2025-11-16T00:00:00.000Z",
+      "deadline": {
+        "date": "2025-11-16T00:00:00.000Z",
+        "status": "pending"
+      },
+      "version": 1
+    },
+    {
+      "id": "jp2L9j5HrA0RdcsKTd6C",
+      "name": "Aviso de inicio de Obra",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2026-04-07T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "leSgMS2wn32LRXqjMTkD",
+      "name": "Certificado ART con nómina de personal y cláusula de no repetición 3029 | Proyecto RDA – PLANTA CPF |",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2025-11-22T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "nuXJ0RBtNDiGTmnQ3FSW",
+      "name": "Alta temprana en ARCA firmada por el empleado |",
+      "entityType": "company",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "createdAt": "2025-11-14T21:47:40.524Z",
+      "origen": "frontend",
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "licvidalfernando@gmail.com",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "status": "Pendiente",
+      "aprobadoPor": {
+        "uid": "",
+        "email": "",
+        "realemail": ""
+      },
+      "expirationDate": "2025-12-05T00:00:00.000Z",
+      "deadline": {
+        "date": "2025-12-05T00:00:00.000Z",
+        "status": "pending"
+      },
+      "version": 1,
+      "appliesTo": {
+        "main": true,
+        "clients": []
+      }
+    },
+    {
+      "id": "oFPDQsP4SyvjlFxcPxS3",
+      "name": "Recibo de Haberes ypf",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "p4POCjptAOnO3BD2Bca7",
+      "name": "Programa de Seguridad aprobado por ART/Carta de eximición/Carta adhesión subcontratista",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2026-04-07T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "p6wPbzgmxV2ue28N6IDe",
+      "name": "Póliza SVO –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2025-11-30T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "pYXyalPyoJj2Wtw2dHyU",
+      "name": "Alta temprana en ARCA firmada por el empleado |",
+      "entityType": "company",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "exampleComment": "cargar",
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "createdAt": "2025-11-15T00:14:30.151Z",
+      "origen": "frontend",
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "licvidalfernando@gmail.com",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "status": "Pendiente",
+      "aprobadoPor": {
+        "uid": "",
+        "email": "",
+        "realemail": ""
+      },
+      "expirationDate": "2025-11-14T00:00:00.000Z",
+      "deadline": {
+        "date": "2025-11-14T00:00:00.000Z",
+        "status": "pending"
+      },
+      "version": 1,
+      "appliesTo": {
+        "main": true,
+        "clients": []
+      }
+    },
+    {
+      "id": "tCmTEmItVtLQYbnJoRaS",
+      "name": "Check list de Equipos, Vehículos y Maquinas eléctricas, Manuales y Neumáticas 3029 | Proyecto RDA – PLANTA CPF",
+      "entityType": "vehicle",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "no-deadline",
+        "date": null
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "uBolTEc5BIqFJUMOK3rw",
+      "name": "Anexo B.9 + Examen médico completo – MAXIMIA SA – 3029 – RDA – CPF |",
+      "entityType": "employee",
+      "companyId": "20373003403",
+      "realemail": "1@gmail.com",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "exampleImage": "https://cdn.controldoc.app/file/controldocdemo/admin/document_examples/Captura_de_1763104691549.png",
+      "exampleComment": "mas chico",
+      "createdFor": {
+        "companyId": "20373003403",
+        "realemail": "1@gmail.com",
+        "email": "dieguito@controldoc.app"
+      },
+      "createdBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "createdAt": "2025-11-14T07:18:17.665Z",
+      "origen": "frontend",
+      "archivoSubido": false,
+      "uploadedBy": {
+        "uid": "dBq0JqwxIZckWGf4r7PorlPyaDF2",
+        "realemail": "licvidalfernando@gmail.com",
+        "email": "licvidalfernando@gmail.com"
+      },
+      "status": "Pendiente",
+      "aprobadoPor": {
+        "uid": "",
+        "email": "",
+        "realemail": ""
+      },
+      "expirationDate": "2025-11-21T00:00:00.000Z",
+      "deadline": {
+        "date": "2025-11-21T00:00:00.000Z",
+        "status": "pending"
+      },
+      "version": 1
+    },
+    {
+      "id": "uimDC0UA3jij0yrwxGYZ",
+      "name": "Copia de denuncias presentadas ante ART por accidentes o enfermedades –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "vyDEVSFnfNLAxwBwS0T2",
+      "name": "Visitas del responsable de HyS –",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2025-10-25T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "w6UdBhuytsj7CoQSfr97",
+      "name": "Registro inducción básica de seguridad al personal (detallar temas dictados y Proyecto aplicable) 3029",
+      "entityType": "employee",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "status": "pending",
+        "date": "2029-11-19T00:00:00.000Z"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "wxKP07cd0wBvLaLg9TqV",
+      "name": "Estado Cumplimiento (ARCA) – Pendiente",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": "2026-09-01T00:00:00.000Z",
+        "status": "pending"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    },
+    {
+      "id": "z6SbLUmKKNoq6F3EdxpQ",
+      "name": "PAGO FORMULARIO 931YPF",
+      "entityType": "company",
+      "allowedFileTypes": [
+        ".pdf",
+        ".jpg",
+        ".jpeg",
+        ".png"
+      ],
+      "deadline": {
+        "date": null,
+        "status": "no-deadline"
+      },
+      "exampleImage": "",
+      "companyId": "20373003403",
+      "createdAt": "2025-11-14T19:53:16.421Z",
+      "subidoDesde": "plantilla"
+    }
+  ]
+}
