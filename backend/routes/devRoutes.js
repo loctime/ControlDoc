@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import admin from 'firebase-admin';
+import { auth } from '../firebaseconfig.js';
 
 const router = Router();
 
@@ -18,7 +18,7 @@ router.post('/set-role', async (req, res) => {
   if (!uid) return res.status(400).json({ error: 'Falta el UID del usuario' });
 
   try {
-    await admin.auth().setCustomUserClaims(uid, { role });
+    await auth.setCustomUserClaims(uid, { role });
     res.json({ message: `✅ Rol "${role}" asignado a UID ${uid}` });
   } catch (error) {
     console.error('❌ Error al asignar rol:', error);

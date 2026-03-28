@@ -50,6 +50,11 @@ if (!controlFileServiceAccount) {
 }
 
 // ── Inicializar apps (evitar duplicados en hot reload) ─────────
+// App [DEFAULT] = ControlDoc: getFirestore() / admin.firestore() sin nombre usan esta app
+if (!admin.apps.some((a) => a.name === '[DEFAULT]')) {
+  admin.initializeApp({ credential: admin.credential.cert(controlDocServiceAccount) });
+}
+
 const controlDocApp = admin.apps.find(a => a?.name === 'controldoc')
   || admin.initializeApp({ credential: admin.credential.cert(controlDocServiceAccount) }, 'controldoc');
 
