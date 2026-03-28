@@ -78,11 +78,23 @@ app.options('*', (req, res) => {
 });
 app.use(express.json());
 
+// Hacer la base de datos disponible globalmente (antes del middleware tenant, por si rutas públicas lo necesitan)
+app.locals.db = db;
+
+// Rutas públicas sin resolución de tenant (ping/health para UptimeRobot y wake del frontend)
+app.get('/api/ping', (req, res) => {
+  res.send('pong');
+});
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'active',
+    firebase: true,
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Middleware para detectar tenant
 app.use(tenantMiddleware);
-
-// Hacer la base de datos disponible globalmente
-app.locals.db = db;
 
 // ✅ Ruta principal de subida de archivos
 app.use('/api/upload', uploadRoute(upload)); 
@@ -148,20 +160,6 @@ app.use('/api/feedback', feedbackRoutes);
 
 // ✅ Ruta de patrones de extracción
 app.use('/api/patterns', patternsRoute);
-
-// ✅ Ruta de ping para mantener vivo el servidor (UptimeRobot)
-app.get('/api/ping', (req, res) => {
-  res.send('pong');
-});
-
-// ✅ Ruta de salud extendida
-app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'active', 
-    firebase: true,
-    timestamp: new Date().toISOString() 
-  });
-});
 
 // ✅ Ruta para agregar administrador
 app.use('/api/admin', adminAddRoutes);

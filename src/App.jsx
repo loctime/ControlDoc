@@ -15,13 +15,19 @@ function App() {
   useEffect(() => {
     // Ping al servidor cada 5 minutos para mantenerlo activo
     const pingServer = async () => {
+      const base = import.meta.env.VITE_API_URL;
+      if (!base) return;
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/ping`, {
-          mode: 'no-cors'
+        const res = await fetch(`${base}/api/ping`, {
+          method: 'GET',
+          credentials: 'omit',
+          cache: 'no-store'
         });
-        console.log('Ping enviado (modo no-cors)');
-      } catch {
-        console.warn('Error esperado en modo no-cors');
+        if (!res.ok) {
+          console.warn('Ping backend:', res.status, res.statusText);
+        }
+      } catch (err) {
+        console.warn('No se pudo alcanzar el backend (ping):', err?.message || err);
       }
     };
 

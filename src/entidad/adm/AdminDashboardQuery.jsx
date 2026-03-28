@@ -237,20 +237,9 @@ const AdminDashboardQuery = () => {
 
   // Despertar backend Render
   useEffect(() => {
-    const wakeRenderBackend = async () => {
-      if (sessionStorage.getItem('renderPinged') === 'true') return;
-      try {
-        await fetch(`${import.meta.env.VITE_API_URL}/api/ping`, {
-          mode: 'no-cors'
-        });
-        console.log("✅ Backend Render despertado (ping)");
-        sessionStorage.setItem('renderPinged', 'true');
-      } catch (err) {
-        console.warn("⚠️ Error al despertar backend:", err);
-      }
-    };
-
-    wakeRenderBackend();
+    import('../../utils/wakeRenderBackend').then(({ wakeRenderBackendOnce }) =>
+      wakeRenderBackendOnce()
+    );
   }, []);
 
   // Asegurar que previewDocs y companies sean arrays

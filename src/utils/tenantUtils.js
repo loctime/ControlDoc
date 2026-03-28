@@ -102,6 +102,15 @@ export async function isTenantValid() {
 
     return false;
   } catch (error) {
+    const msg = String(error?.message || '');
+    const offline =
+      error?.code === 'unavailable' ||
+      msg.includes('offline') ||
+      msg.includes('CLIENT_OFFLINE');
+    if (offline) {
+      console.error('Error verificando tenant (sin conexión a Firestore):', error);
+      throw error;
+    }
     console.error('Error verificando tenant:', error);
     return false;
   }

@@ -88,22 +88,10 @@ const UsuarioDashboard = () => {
   };
 
   useEffect(() => {
-    // Despierta el backend Render solo una vez por sesión de navegador
-    const wakeRenderBackend = async () => {
-      if (sessionStorage.getItem('renderPinged') === 'true') return;
-      try {
-        await fetch(`${import.meta.env.VITE_API_URL}/api/ping`, {
-          mode: 'no-cors'
-        });
-        console.log("✅ Backend Render despertado (ping)");
-        sessionStorage.setItem('renderPinged', 'true');
-      } catch (err) {
-        console.warn("⚠️ Error al despertar backend:", err);
-      }
-    };
-
-    wakeRenderBackend();
-  }, []); // Solo al montar
+    import('../../utils/wakeRenderBackend').then(({ wakeRenderBackendOnce }) =>
+      wakeRenderBackendOnce()
+    );
+  }, []);
 
   // Refresco automático de la pestaña Personal - Mantener este si es necesario para la pestaña Personal
   useEffect(() => {

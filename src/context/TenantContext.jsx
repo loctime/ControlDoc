@@ -26,7 +26,7 @@ export function TenantProvider({ children }) {
           return;
         }
 
-        // Verificar si el tenant es válido
+        // Verificar si el tenant es válido (los fallos de red se propagan)
         const valid = await isTenantValid();
         setIsValid(valid);
 
@@ -39,7 +39,19 @@ export function TenantProvider({ children }) {
         }
       } catch (err) {
         console.error('Error inicializando tenant:', err);
-        setError(err.message);
+        setIsValid(false);
+        const msg = String(err?.message || '');
+        const offline =
+          err?.code === 'unavailable' ||
+          msg.includes('offline') ||
+          msg.includes('CLIENT_OFFLINE');
+        if (offline) {
+          setError(
+            'No hay conexión con el servicio de datos. Comprueba tu red, VPN o firewall y recarga la página.'
+          );
+        } else {
+          setError(err.message);
+        }
       } finally {
         setLoading(false);
       }
@@ -58,6 +70,7 @@ export function TenantProvider({ children }) {
     refreshTenant: async () => {
       setLoading(true);
       try {
+        setError(null);
         const currentTenantId = getCurrentTenantId();
         setTenantId(currentTenantId);
 
@@ -73,9 +86,21 @@ export function TenantProvider({ children }) {
         if (valid) {
           const info = await getTenantInfo();
           setTenantInfo(info);
+        } else {
+          setError('Tenant no válido o no encontrado');
         }
       } catch (err) {
-        setError(err.message);
+        setIsValid(false);
+        const msg = String(err?.message || '');
+        const offline =
+          err?.code === 'unavailable' ||
+          msg.includes('offline') ||
+          msg.includes('CLIENT_OFFLINE');
+        setError(
+          offline
+            ? 'No hay conexión con el servicio de datos. Comprueba tu red, VPN o firewall y recarga la página.'
+            : err.message
+        );
       } finally {
         setLoading(false);
       }

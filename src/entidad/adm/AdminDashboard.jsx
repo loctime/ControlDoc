@@ -161,19 +161,9 @@ function getStatusData(previewDocs, companies) {
 export default function AdminDashboard() {
   // Despierta el backend Render solo una vez al montar
   useEffect(() => {
-    const wakeRenderBackend = async () => {
-      if (sessionStorage.getItem('renderPinged') === 'true') return;
-      try {
-        await fetch(`${import.meta.env.VITE_API_URL}/api/ping`, {
-          mode: 'no-cors'
-        });
-        console.log("✅ Backend Render despertado (ping)");
-        sessionStorage.setItem('renderPinged', 'true');
-      } catch (err) {
-        console.warn("⚠️ Error al despertar backend:", err);
-      }
-    };
-    wakeRenderBackend();
+    import('../../utils/wakeRenderBackend').then(({ wakeRenderBackendOnce }) =>
+      wakeRenderBackendOnce()
+    );
   }, []);
 
   // Estado para el card seleccionado
