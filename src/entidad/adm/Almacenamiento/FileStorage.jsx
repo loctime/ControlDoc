@@ -375,11 +375,11 @@ export default function FileStorage() {
       const adminFoldersPath = getTenantCollectionPath('adminFolders');
       const filesRef = collection(db, `${adminFoldersPath}/${folder.id}/files`);
       const filesSnap = await getDocs(filesRef);
-      const { deleteFileByURL } = await import("../../../utils/FileUploadService");
+      const { deleteFile } = await import("../../../utils/FileUploadService");
       const deletePromises = [];
       filesSnap.forEach(docSnap => {
         const file = docSnap.data();
-        if (file.fileURL) deletePromises.push(deleteFileByURL(file.fileURL));
+        if (file.fileId || file.fileURL) deletePromises.push(deleteFile({ fileId: file.fileId, fileURL: file.fileURL }));
         deletePromises.push(deleteDoc(doc(db, `${adminFoldersPath}/${folder.id}/files`, docSnap.id)));
       });
               // 2. Eliminar la carpeta en Firestore

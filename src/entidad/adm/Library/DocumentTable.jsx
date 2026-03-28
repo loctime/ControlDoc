@@ -8,7 +8,39 @@ import { useDocumentEntityTypes } from '../../../utils/useDocumentEntityTypes';
 import { useClientNamesMap } from '../../../utils/getClientName';
 
 import DownloadButton from '../../../components/common/DownloadButton';
+import { useFileUrl } from '../../../hooks/useFileUrl';
 
+function DocRowActions({ doc, onViewDetails, onIHatePdf }) {
+  const resolvedUrl = useFileUrl({ fileId: doc.fileId, fileURL: doc.fileURL });
+  return (
+    <>
+      <Tooltip title="Ver detalles">
+        <IconButton onClick={() => onViewDetails(doc.id)} size="small">
+          <Visibility fontSize="small" />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Descargar">
+        <DownloadButton
+          url={resolvedUrl}
+          currentDocument={doc}
+          size="small"
+          iconOnly
+          disabled={!resolvedUrl}
+        />
+      </Tooltip>
+      <Tooltip title="iHatePDF - Herramientas PDF">
+        <IconButton
+          onClick={() => onIHatePdf(doc)}
+          size="small"
+          disabled={!resolvedUrl}
+          sx={{ color: 'error.main' }}
+        >
+          <PictureAsPdf fontSize="small" />
+        </IconButton>
+      </Tooltip>
+    </>
+  );
+}
 
 // Props de selección múltiple: selectedFiles, toggleFileSelection, selectAllFiles
 // Permiten integración con MultiDownloadZipButton para descarga masiva
@@ -300,30 +332,7 @@ const DocumentTable = ({
 
                 {/* Acciones */}
                 <TableCell align="center">
-                  <Tooltip title="Ver detalles">
-                    <IconButton onClick={() => onViewDetails(doc.id)} size="small">
-                      <Visibility fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Descargar">
-                    <DownloadButton 
-                      url={doc.fileURL}
-                      currentDocument={doc}
-                      size="small"
-                      iconOnly
-                      disabled={!doc.fileURL}
-                    />
-                  </Tooltip>
-                  <Tooltip title="iHatePDF - Herramientas PDF">
-                    <IconButton 
-                      onClick={() => onIHatePdf(doc)} 
-                      size="small"
-                      disabled={!doc.fileURL}
-                      sx={{ color: 'error.main' }}
-                    >
-                      <PictureAsPdf fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
+                  <DocRowActions doc={doc} onViewDetails={onViewDetails} onIHatePdf={onIHatePdf} />
                 </TableCell>
               </TableRow>
             ))}

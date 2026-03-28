@@ -12,6 +12,7 @@ import {
   CheckCircle, Cancel, Pending
 } from '@mui/icons-material';
 import { useClientName } from '../../../utils/getClientName';
+import { useFileUrl } from '../../../hooks/useFileUrl';
 
 
 export default function DocumentViewer({
@@ -24,6 +25,7 @@ export default function DocumentViewer({
   loadingDocument
 }) {
   const { clientName, isLoading: isLoadingClientName } = useClientName(currentDocument?.clientId);
+  const resolvedUrl = useFileUrl({ fileId: currentDocument?.fileId, fileURL: currentDocument?.fileURL });
   const getFileIcon = (type) => {
     switch(type?.toLowerCase()) {
       case 'pdf': return <PictureAsPdf color="error" fontSize="large" />;
@@ -197,9 +199,9 @@ export default function DocumentViewer({
               justifyContent: 'center',
               alignItems: 'center'
             }}>
-              {currentDocument?.fileURL ? (
-                <VistaPrevia 
-                  url={currentDocument.fileURL}
+              {resolvedUrl ? (
+                <VistaPrevia
+                  url={resolvedUrl}
                   width="100%"
                   height="100%"
                   sx={{ 
@@ -237,10 +239,10 @@ export default function DocumentViewer({
         
         {currentDocument && (
           <DownloadButton
-            url={currentDocument.fileURL}
+            url={resolvedUrl}
             currentDocument={currentDocument}
             label="Descargar"
-            disabled={!currentDocument.fileURL}
+            disabled={!resolvedUrl}
             sx={{ borderRadius: 2 }}
           />
         )}

@@ -3,6 +3,7 @@ import { Box, Tabs, Tab, Paper, Alert, Typography, Chip, Button } from '@mui/mat
 import { useSearchHistory } from '../../hooks/useSearchHistory.js';
 import { usePDFRendering } from './hooks/usePDFRendering.js';
 import { useDateDetection } from './hooks/useDateDetection.js';
+import { useFileUrl } from '../../hooks/useFileUrl.js';
 import SearchBar from './components/SearchBar.jsx';
 import ControlPanel from './components/ControlPanel.jsx';
 import DocumentMetadata from './components/DocumentMetadata.jsx';
@@ -92,11 +93,12 @@ function SimplePDFViewer({ fileURL }) {
   );
 }
 
-export default function PDFViewer({ 
-  fileURL, 
-  onApprove, 
-  onReject, 
-  onDownload, 
+export default function PDFViewer({
+  fileURL,
+  fileId,
+  onApprove,
+  onReject,
+  onDownload,
   documentId,
   // Metadata del documento
   uploadedAt,
@@ -107,6 +109,7 @@ export default function PDFViewer({
   entityName,
   status
 }) {
+  const resolvedUrl = useFileUrl({ fileId, fileURL });
   const [tab, setTab] = useState(0);
   const [query, setQuery] = useState('');
   const [matches, setMatches] = useState([]);
@@ -126,7 +129,7 @@ export default function PDFViewer({
   }, []);
   
   // Hooks personalizados (solo si PDF.js está habilitado)
-  const { canvasRef, pdf, page, numPages, loading, error, setPage, renderPage } = pdfjsEnabled ? usePDFRendering(fileURL) : {
+  const { canvasRef, pdf, page, numPages, loading, error, setPage, renderPage } = pdfjsEnabled ? usePDFRendering(resolvedUrl) : {
     canvasRef: { current: null },
     pdf: null,
     page: 1,
@@ -590,7 +593,7 @@ export default function PDFViewer({
               onReject={onReject}
               onDownload={onDownload}
               documentId={documentId}
-              fileURL={fileURL}
+              fileURL={resolvedUrl}
               onShowAllPages={pdfjsEnabled && advancedPdfGroupingEnabled ? handleShowAllPages : null}
             />
 
@@ -631,12 +634,12 @@ export default function PDFViewer({
             ) : (
               /* Visor alternativo con iframe */
               <Box sx={{ mt: 2 }}>
-                <SimplePDFViewer fileURL={fileURL} />
+                <SimplePDFViewer fileURL={resolvedUrl} />
                 <Box sx={{ mt: 2, textAlign: 'center' }}>
                   <Button
                     variant="outlined"
                     startIcon={<OpenInNewIcon />}
-                    onClick={() => window.open(fileURL, '_blank')}
+                    onClick={() => window.open(resolvedUrl, '_blank')}
                     sx={{ mr: 1 }}
                   >
                     Abrir en nueva pestaña
@@ -668,7 +671,7 @@ export default function PDFViewer({
         <AllPagesModal
           open={showAllPagesModal}
           onClose={() => setShowAllPagesModal(false)}
-          fileURL={fileURL}
+          fileURL={resolvedUrl}
           numPages={numPages}
           onPageSelect={handlePageSelect}
           onDateSelect={handleDateSelect}

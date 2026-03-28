@@ -14,6 +14,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import DownloadButton from "../../components/common/DownloadButton";
 import { parseFirestoreDate } from "../../utils/dateHelpers";
+import { useFileUrl } from "../../hooks/useFileUrl";
 import {
   getDeadlineStatus,
   getStatusIconComponent
@@ -27,6 +28,7 @@ export default function VistaDocumentoSubido({
   id,
   name,
   fileURL,
+  fileId,
   fileName,
   status,
   companyName,
@@ -46,6 +48,7 @@ export default function VistaDocumentoSubido({
   selectedDate
 }) {
   const [imageScale, setImageScale] = useState(1);
+  const resolvedFileURL = useFileUrl({ fileId, fileURL });
 
   const expirationParsed = parseFirestoreDate(expirationDate);
   const deadlineStatus = getDeadlineStatus(expirationParsed || expirationDate);
@@ -65,7 +68,7 @@ export default function VistaDocumentoSubido({
   };
 
   const renderViewer = () => {
-    if (!fileURL) return null;
+    if (!resolvedFileURL) return null;
 
     if (isPDF(fileName)) {
       return (
@@ -80,7 +83,7 @@ export default function VistaDocumentoSubido({
           }}
         >
           <iframe
-            src={fileURL}
+            src={resolvedFileURL}
             title="Vista previa PDF"
             style={{
               width: "100%",
@@ -109,7 +112,7 @@ export default function VistaDocumentoSubido({
             }}
           >
             <img
-              src={fileURL}
+              src={resolvedFileURL}
               alt={name || "Vista previa"}
               style={{
                 maxWidth: "100%",
@@ -144,7 +147,7 @@ export default function VistaDocumentoSubido({
             <Button
               size="small"
               variant="outlined"
-              onClick={() => window.open(fileURL, "_blank")}
+              onClick={() => window.open(resolvedFileURL, "_blank")}
             >
               Abrir en nueva pestaña
             </Button>
@@ -237,11 +240,11 @@ export default function VistaDocumentoSubido({
       )}
 
       <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 2 }}>
-        {fileURL && (
+        {resolvedFileURL && (
           <DownloadButton
-            url={fileURL}
+            url={resolvedFileURL}
             currentDocument={{
-              fileURL,
+              fileURL: resolvedFileURL,
               fileName,
               name,
               companyName,

@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { UploadFile as UploadFileIcon } from '@mui/icons-material';
 import DownloadButton from '../../../components/common/DownloadButton';
+import { useFileUrl } from '../../../hooks/useFileUrl';
 import VistaPrevia from '../../../components/common/VistaPrevia';
 import { approveDocument, rejectDocument, updateDocumentOnUpload } from "../../../utils/MetadataService";
 import { useAuth } from '../../../context/AuthContext';
@@ -393,7 +394,10 @@ export default function ModalDocumentWithConversion({
     latestUploadedDocument?.fileComment ||
     latestUploadedDocument?.comment ||
     null;
-  const latestFileURL = latestUploadedDocument?.fileURL || latestUploadedDocument?.url || null;
+  const latestFileURL = useFileUrl({
+    fileId: latestUploadedDocument?.fileId,
+    fileURL: latestUploadedDocument?.fileURL || latestUploadedDocument?.url,
+  });
   const latestFileName =
     latestUploadedDocument?.fileName ||
     latestUploadedDocument?.filename ||

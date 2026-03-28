@@ -12,7 +12,8 @@ import {
   updateDoc
 } from 'firebase/firestore';
 import { db } from '../../../config/firebaseconfig.js';
-import { getTenantCollectionPath } from '../../../utils/tenantUtils.js';
+import { getTenantCollectionPath, getCurrentTenantId } from '../../../utils/tenantUtils.js';
+import { uploadToControlFile, buildControlFilePath, getDownloadUrl } from '../../../utils/ControlFileStorage.js';
 
 export default function useBatchApproval() {
   const [isProcessingBatch, setIsProcessingBatch] = useState(false);
@@ -272,7 +273,7 @@ export default function useBatchApproval() {
         email: data.email || data.uploadedByEmail,
         uploadedBy: data.uploadedBy,
         uploadedByEmail: data.uploadedByEmail || uploadedByEmail,
-        originalFileURL: fileURL,
+        originalFileURL: data.fileURL || (data.fileId ? await getDownloadUrl(data.fileId) : null),
         fileName: data.fileName || 'documento.pdf',
         fileType: data.fileType || 'application/pdf',
         size: data.size || 0,
@@ -364,6 +365,7 @@ export default function useBatchApproval() {
     
     // Extraer páginas específicas del PDF usando el backend
     let extractedPdfUrl;
+    let extractedFileId;
     let extractedFileName;
     
     try {
@@ -396,28 +398,15 @@ export default function useBatchApproval() {
       const pageSuffix = pages.length === 1 ? `_page_${pages[0]}` : `_pages_${pages.join('-')}`;
       extractedFileName = `${baseName}${pageSuffix}.pdf`;
       
-      // Subir el PDF extraído usando la API de upload existente
-      const formData = new FormData();
-      formData.append('file', extractedPdfBlob, extractedFileName);
-      formData.append('fileName', extractedFileName);
-      formData.append('folder', `empresas/${originalData.companyId}`);
-      
-      const uploadResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${await currentUserData.getToken?.() || ''}`
-        },
-        body: formData
-      });
-      
-      if (!uploadResponse.ok) {
-        throw new Error(`Error subiendo PDF extraído: ${uploadResponse.status} ${uploadResponse.statusText}`);
-      }
-      
-      const uploadResult = await uploadResponse.json();
-      extractedPdfUrl = uploadResult.url;
-      
-      console.log(`✅ PDF extraído subido exitosamente:`, extractedPdfUrl);
+      // Subir el PDF extraído a ControlFile
+      const extractedPdfFile = new File([extractedPdfBlob], extractedFileName, { type: 'application/pdf' });
+      const tenantId = getCurrentTenantId() || 'default';
+      const path = buildControlFilePath(`empresas/${originalData.companyId}`, tenantId);
+      const { fileId: uploadedFileId } = await uploadToControlFile(extractedPdfFile, path);
+      extractedPdfUrl = null;
+      extractedFileId = uploadedFileId;
+
+      console.log(`✅ PDF extraído subido exitosamente a ControlFile:`, uploadedFileId);
       
     } catch (error) {
       console.error('❌ Error extrayendo/subiendo páginas del PDF:', error);
@@ -451,7 +440,8 @@ export default function useBatchApproval() {
       documentName: documentName,
       originalName: originalData.name,
       fileName: extractedFileName,
-      fileURL: extractedPdfUrl,
+      fileId: extractedFileId || null,
+      fileURL: extractedFileId ? null : (extractedPdfUrl || null),
       fileType: "application/pdf",
       
       // Metadata de aprobación

@@ -372,6 +372,7 @@ export default function PendientesPage() {
                             id={doc.id}
                             name={doc.name || doc.documentName}
                             fileURL={doc.fileURL}
+                            fileId={doc.fileId}
                             fileName={doc.fileName}
                             status={doc.status}
                             companyName={doc.companyName}

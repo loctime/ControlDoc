@@ -16,7 +16,8 @@ import axios from 'axios';
 import { approveDocument, rejectDocument } from "../../utils/MetadataService";
 import { cleanFileName } from '../../utils/cleanFileName';
 import { enviarEmailDocumento } from '../../utils/EmailService';
-import { getTenantCollectionPath } from '../../utils/tenantUtils';
+import { getTenantCollectionPath, getCurrentTenantId } from '../../utils/tenantUtils';
+import { uploadToControlFile, buildControlFilePath, getDownloadUrl } from '../../utils/ControlFileStorage';
 
 /**
  * Aprueba o rechaza un documento subido, actualiza Firestore y copia a biblioteca si se aprueba.
@@ -170,6 +171,7 @@ const handleApproveOrReject = async (
 
     // Variables para archivo convertido (se llenarán si es imagen)
     let convertedFileURL = null;
+    let convertedFileId = null;
     let convertedFileName = null;
     let convertedFileType = null;
     let convertedSize = null;
@@ -197,8 +199,9 @@ const handleApproveOrReject = async (
     };
 
     // Si se convirtió una imagen, agregar datos del PDF convertido
-    if (convertedFileURL) {
-      updateFields.fileURL = convertedFileURL;
+    if (convertedFileId) {
+      updateFields.fileId = convertedFileId;
+      updateFields.fileURL = null;
       updateFields.fileName = convertedFileName;
       updateFields.fileType = convertedFileType;
       updateFields.fileSize = convertedSize;
@@ -290,7 +293,10 @@ const handleApproveOrReject = async (
 
   let fileExtension = data.fileName?.split('.').pop() || data.fileType?.split('/').pop() || 'pdf';
   let safeFileName = cleanFileName(data.fileName || data.documentName || `documento-${Date.now()}.${fileExtension}`);
-  let fileURL = data.fileURL;
+  let fileURL = data.fileURL || null;
+  if (!fileURL && data.fileId) {
+    fileURL = await getDownloadUrl(data.fileId);
+  }
   let fileType = data.fileType;
   let size = data.size || 0;
 
@@ -319,46 +325,22 @@ const handleApproveOrReject = async (
             console.log('[handleApproveOrReject] File PDF construido:', pdfFile);
 
             // Subir PDF convertido directamente sin crear nuevo documento
-            let uploadResult;
             try {
-              const formData = new FormData();
-              formData.append("file", pdfFile);
-              formData.append("fileName", sanitizedName);
-              formData.append("folder", `empresas/${companyId}`);
-              
-              const token = await auth.currentUser.getIdToken();
-              const uploadResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
-                method: 'POST',
-                headers: {
-                  'Authorization': `Bearer ${token}`
-                },
-                body: formData
-              });
-              
-              if (!uploadResponse.ok) {
-                throw new Error(`Error ${uploadResponse.status}: ${uploadResponse.statusText}`);
-              }
-              
-              uploadResult = await uploadResponse.json();
-              console.log('[handleApproveOrReject] PDF convertido subido:', uploadResult);
-            } catch (uploadError) {
-              console.error('❌ Error subiendo PDF convertido:', uploadError);
-              setToastMessage(`Error subiendo el PDF convertido: ${uploadError.message}`);
-              setToastOpen(true);
-              return;
-            }
+              const tenantId = getCurrentTenantId() || 'default';
+              const path = buildControlFilePath(`empresas/${companyId}`, tenantId);
+              const { fileId: uploadedFileId } = await uploadToControlFile(pdfFile, path);
+              console.log('[handleApproveOrReject] PDF convertido subido:', uploadedFileId);
 
-            if (uploadResult?.url) {
               // Guardar datos del PDF convertido para actualizar el documento existente
-              convertedFileURL = uploadResult.url;
+              convertedFileId = uploadedFileId;
               convertedFileName = sanitizedName;
               convertedFileType = 'application/pdf';
               convertedSize = pdfFile.size;
-              
-              console.log('✅ Imagen convertida a PDF, subida y URL actualizada.');
-            } else {
-              console.warn('⚠️ Falló la subida del PDF convertido.', uploadResult);
-              setToastMessage('Falló la subida del PDF convertido. Intente nuevamente o contacte soporte.');
+
+              console.log('✅ Imagen convertida a PDF y subida a ControlFile.');
+            } catch (uploadError) {
+              console.error('❌ Error subiendo PDF convertido:', uploadError);
+              setToastMessage(`Error subiendo el PDF convertido: ${uploadError.message}`);
               setToastOpen(true);
               return;
             }
@@ -528,7 +510,8 @@ const handleApproveOrReject = async (
         entityName,
         requiredDocumentId: requiredDocumentId || data.requiredDocumentId || '', // Preservar requiredDocumentId explícitamente
         fileName: convertedFileName || safeFileName,
-        fileURL: convertedFileURL || fileURL || '',
+        fileId: convertedFileId || data.fileId || null,
+        fileURL: convertedFileId ? null : (fileURL || ''),
         name: data.name || data.documentName || 'Sin nombre',
         documentName: data.documentName || data.name || 'Sin nombre',
         originalName: data.name || data.documentName || 'Sin nombre',

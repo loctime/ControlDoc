@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import { useFileUrl } from '../../../hooks/useFileUrl';
 import {
   Card,
   CardActionArea,
@@ -66,6 +67,7 @@ const renderFileIcon = (fileType = "", size = 24) => {
 
 export default function FileCard({ file, onPreview, onDelete, onDownload, onShare }) {
   const [anchorEl, setAnchorEl] = useState(null)
+  const resolvedFileURL = useFileUrl({ fileId: file?.fileId, fileURL: file?.fileURL })
 
   const handleOpenMenu = (event) => {
     event.stopPropagation()
@@ -88,7 +90,7 @@ export default function FileCard({ file, onPreview, onDelete, onDownload, onShar
   const renderThumbnail = () => {
     const [imageError, setImageError] = useState(false);
     const isImage = file.fileType?.startsWith("image/");
-    const imageUrl = file.fileURL;
+    const imageUrl = resolvedFileURL;
   
     if (isImage && !imageError) {
       return (

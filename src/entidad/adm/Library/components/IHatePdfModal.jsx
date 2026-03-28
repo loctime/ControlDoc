@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useFileUrl } from '../../../../hooks/useFileUrl';
 import {
   Dialog,
   DialogContent,
@@ -22,6 +23,8 @@ const IHatePdfModal = ({
   onClose, 
   selectedPdfDoc 
 }) => {
+  const resolvedPdfUrl = useFileUrl({ fileId: selectedPdfDoc?.fileId, fileURL: selectedPdfDoc?.fileURL });
+
   // Estados del modal
   const [pdfPages, setPdfPages] = useState([]);
   const [selectedPages, setSelectedPages] = useState([]);
@@ -131,7 +134,7 @@ const IHatePdfModal = ({
           'Authorization': `Bearer ${await getAuth().currentUser.getIdToken()}`
         },
         body: JSON.stringify({
-          fileUrl: selectedPdfDoc.fileURL,
+          fileUrl: resolvedPdfUrl,
           selectedPages: selectedPages,
           filename: selectedPdfDoc.name
         })
@@ -209,7 +212,7 @@ const IHatePdfModal = ({
           'Authorization': `Bearer ${await getAuth().currentUser.getIdToken()}`
         },
         body: JSON.stringify({
-          fileUrl: selectedPdfDoc.fileURL,
+          fileUrl: resolvedPdfUrl,
           filename: selectedPdfDoc.name
         })
       });
@@ -265,7 +268,7 @@ const IHatePdfModal = ({
           'Authorization': `Bearer ${await getAuth().currentUser.getIdToken()}`
         },
         body: JSON.stringify({
-          fileUrl: selectedPdfDoc.fileURL,
+          fileUrl: resolvedPdfUrl,
           selectedPages: selectedPages,
           filename: selectedPdfDoc.name
         })
@@ -312,8 +315,8 @@ const IHatePdfModal = ({
 
   // Efecto para cargar páginas cuando se abre el modal
   React.useEffect(() => {
-    if (open && selectedPdfDoc?.fileURL) {
-      loadPdfPages(selectedPdfDoc.fileURL);
+    if (open && resolvedPdfUrl) {
+      loadPdfPages(resolvedPdfUrl);
     } else if (!open) {
       // Limpiar estado cuando se cierra el modal
       setPdfPages([]);
@@ -321,7 +324,7 @@ const IHatePdfModal = ({
       setPdfTotalPages(0);
       setPdfError(null);
     }
-  }, [open, selectedPdfDoc]);
+  }, [open, resolvedPdfUrl]);
 
   return (
     <Dialog 

@@ -26,6 +26,7 @@ import {
 } from '@mui/icons-material';
 import { useAuth } from '../../../context/AuthContext';
 import { uploadFile } from '../../../utils/FileUploadService';
+import { getDownloadUrl } from '../../../utils/ControlFileStorage';
 import BulkUploadReview from './BulkUploadReview';
 import PdfSeparationReview from './PdfSeparationReview';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -227,9 +228,10 @@ export default function BulkUploadDialog({
 
     try {
       console.log(`🔍 Detectando separaciones en PDF: ${pdfFile.fileName}`);
-      
+      const pdfFileUrl = pdfFile.fileURL || (pdfFile.fileId ? await getDownloadUrl(pdfFile.fileId) : null);
+
       const apiUrl = `${import.meta.env.VITE_API_URL}/api/pdf-separations/detect`;
-      
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -237,7 +239,7 @@ export default function BulkUploadDialog({
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-          pdfUrl: pdfFile.fileURL,
+          pdfUrl: pdfFileUrl,
           fileName: pdfFile.fileName,
           companyId: finalCompanyId, // Siempre la empresa principal
           activeCompanyId: activeCompanyId || mainCompanyId, // Empresa/cliente activo
@@ -312,8 +314,10 @@ export default function BulkUploadDialog({
     setError(null);
 
     try {
+      const splitFile = separationData.pdfFile;
+      const splitFileUrl = splitFile.fileURL || (splitFile.fileId ? await getDownloadUrl(splitFile.fileId) : null);
       const apiUrl = `${import.meta.env.VITE_API_URL}/api/pdf-separations/split`;
-      
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -321,7 +325,7 @@ export default function BulkUploadDialog({
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-          pdfUrl: separationData.pdfFile.fileURL,
+          pdfUrl: splitFileUrl,
           fileName: separationData.pdfFile.fileName,
           separationPages: separationPages,
           companyId: finalCompanyId, // Siempre la empresa principal

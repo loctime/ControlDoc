@@ -20,6 +20,7 @@ import {
 import { InsertDriveFile, PictureAsPdf, Download, Delete } from "@mui/icons-material";
 import DownloadButton from "../../../components/common/DownloadButton";
 import { useSnackbar } from "notistack";
+import { useFileUrl } from "../../../hooks/useFileUrl";
 
 // Función helper para formatear el tamaño del archivo
 const formatFileSize = (bytes) => {
@@ -35,7 +36,7 @@ export default function VistaDocumentoCard({ file, width = 240, height = 140, on
   const [loading, setLoading] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
 
-  const fileURL = file?.fileURL || ""
+  const fileURL = useFileUrl({ fileId: file?.fileId, fileURL: file?.fileURL }) || ""
   const fileName = file?.fileName || "Sin nombre"
   const fileType = file?.fileType || ""
   const fileSize = file?.fileSize ? formatFileSize(file.fileSize) : ""

@@ -29,6 +29,7 @@ import patternsRoute from './routes/patterns.js';
 import requiredDocumentsRoute from './routes/requiredDocuments.js';
 import pdfSeparationsRoute from './routes/pdfSeparations.js';
 import feedbackRoutes from './routes/feedbackRoutes.js';
+import registerDocumentRoute from './routes/registerDocument.js';
 import { tenantMiddleware } from './utils/tenantUtils.js';
 const app = express();
 const port = process.env.PORT || 3001;
@@ -157,6 +158,9 @@ app.use('/api/pdf-separations', pdfSeparationsRoute);
 
 // ✅ Ruta de feedback y aprendizaje
 app.use('/api/feedback', feedbackRoutes);
+
+// ✅ Registro de documento tras upload a ControlFile (sin subida de archivo)
+app.use('/api/register-document', registerDocumentRoute);
 
 // ✅ Ruta de patrones de extracción
 app.use('/api/patterns', patternsRoute);
