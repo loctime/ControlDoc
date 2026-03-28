@@ -6,8 +6,9 @@ const SESSION_KEY = 'renderPinged';
 
 export async function wakeRenderBackendOnce() {
   if (typeof sessionStorage === 'undefined') return;
-  const base = import.meta.env.VITE_API_URL;
-  if (!base || sessionStorage.getItem(SESSION_KEY) === 'true') return;
+  const raw = import.meta.env.VITE_API_URL;
+  if (!raw || sessionStorage.getItem(SESSION_KEY) === 'true') return;
+  const base = String(raw).replace(/\/+$/, '');
   try {
     const res = await fetch(`${base}/api/ping`, {
       method: 'GET',

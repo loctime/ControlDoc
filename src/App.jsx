@@ -15,8 +15,9 @@ function App() {
   useEffect(() => {
     // Ping al servidor cada 5 minutos para mantenerlo activo
     const pingServer = async () => {
-      const base = import.meta.env.VITE_API_URL;
-      if (!base) return;
+      const raw = import.meta.env.VITE_API_URL;
+      if (!raw) return;
+      const base = String(raw).replace(/\/+$/, '');
       try {
         const res = await fetch(`${base}/api/ping`, {
           method: 'GET',

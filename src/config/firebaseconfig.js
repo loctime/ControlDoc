@@ -1,5 +1,18 @@
 import { initializeApp, getApps } from 'firebase/app';
-import { getFirestore, doc, getDoc, collection, query, where, getDocs, updateDoc, addDoc, deleteDoc, orderBy } from 'firebase/firestore';
+import {
+  getFirestore,
+  initializeFirestore,
+  doc,
+  getDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+  updateDoc,
+  addDoc,
+  deleteDoc,
+  orderBy,
+} from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import { getTenantCollectionPath } from '../utils/tenantUtils';
 
@@ -21,6 +34,19 @@ const controlDocConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
+const REQUIRED_FIRESTORE_KEYS = [
+  'VITE_FIREBASE_API_KEY',
+  'VITE_FIREBASE_PROJECT_ID',
+  'VITE_FIREBASE_APP_ID',
+];
+const missingFirestore = REQUIRED_FIRESTORE_KEYS.filter((k) => !import.meta.env[k]);
+if (missingFirestore.length > 0) {
+  console.error(
+    '[ControlDoc] Faltan variables de entorno del proyecto Firestore (ControlDoc). Tras definirlas en Vercel/Render hay que volver a hacer build del frontend:',
+    missingFirestore.join(', ')
+  );
+}
+
 // Inicializar apps separadas (getApps evita duplicados en hot reload)
 const controlFileApp = getApps().find(a => a.name === 'controlfile') || initializeApp(controlFileConfig, 'controlfile');
 const controlDocApp  = getApps().find(a => a.name === 'controldoc')  || initializeApp(controlDocConfig,  'controldoc');
@@ -28,7 +54,23 @@ const controlDocApp  = getApps().find(a => a.name === 'controldoc')  || initiali
 // Auth → ControlFile | Firestore → ControlDoc
 const auth = getAuth(controlFileApp);
 setPersistence(auth, browserLocalPersistence);
-const db = getFirestore(controlDocApp);
+
+// Long polling: útil tras proxies/firewalls que rompen WebChannel (error tipo "client is offline")
+function getControlDocDb() {
+  if (import.meta.env.VITE_FIRESTORE_LONG_POLLING === 'true') {
+    try {
+      return initializeFirestore(controlDocApp, { experimentalAutoDetectLongPolling: true });
+    } catch (e) {
+      const msg = String(e?.message || '');
+      if (msg.includes('already been started') || msg.includes('already initialized')) {
+        return getFirestore(controlDocApp);
+      }
+      throw e;
+    }
+  }
+  return getFirestore(controlDocApp);
+}
+const db = getControlDocDb();
 
 // ── Constantes ─────────────────────────────────────────────────
 const ADMIN_ROLE             = "DhHkVja";

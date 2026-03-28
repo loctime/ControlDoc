@@ -1,4 +1,17 @@
 // backend/allowed-origins.js
+// Orígenes extra: CORS_EXTRA_HOSTNAMES=app.ejemplo.com,otro.com (hostnames, separados por coma)
+
+const EXTRA_HOSTNAMES = (process.env.CORS_EXTRA_HOSTNAMES || '')
+  .split(',')
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
+
+function matchesExtraHostname(hostname) {
+  const h = hostname.toLowerCase();
+  return EXTRA_HOSTNAMES.some(
+    (allowed) => h === allowed || h.endsWith(`.${allowed}`)
+  );
+}
 
 export function isAllowedOrigin(origin) {
     if (!origin) {
@@ -22,7 +35,8 @@ export function isAllowedOrigin(origin) {
         hostname === 'www.controldoc.app' ||
         hostname.endsWith('.controldoc.app') ||
         hostname.endsWith('.vercel.app') ||
-        hostname.endsWith('.onrender.com')
+        hostname.endsWith('.onrender.com') ||
+        matchesExtraHostname(hostname)
       );
       
       if (process.env.NODE_ENV === 'development' || process.env.DEBUG_CORS) {

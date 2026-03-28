@@ -9,12 +9,25 @@ import {
   LinearProgress
 } from '@mui/material';
 import { Error as ErrorIcon, Home as HomeIcon } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
 import blancopro3 from '../../assets/blancopro3.png';
 import controldacrka from '../../assets/controldacrka.png';
 
+function isConnectivityErrorMessage(text) {
+  if (!text || typeof text !== 'string') return false;
+  const t = text.toLowerCase();
+  return (
+    t.includes('conexión') ||
+    t.includes('conexion') ||
+    t.includes('red') ||
+    t.includes('vpn') ||
+    t.includes('firewall') ||
+    t.includes('offline') ||
+    t.includes('servicio de datos')
+  );
+}
+
 export const TenantError = ({ error }) => {
-  const navigate = useNavigate();
+  const connectivity = isConnectivityErrorMessage(error);
 
   const handleGoHome = () => {
     // Redirigir al dominio principal
@@ -49,11 +62,13 @@ export const TenantError = ({ error }) => {
           />
 
           <Typography variant="h4" component="h1" gutterBottom>
-            Tenant No Encontrado
+            {connectivity ? 'Sin conexión a los servicios' : 'Tenant No Encontrado'}
           </Typography>
 
           <Typography variant="body1" color="text.secondary" paragraph>
-            El subdominio que estás intentando acceder no existe o no está activo.
+            {connectivity
+              ? 'No pudimos contactar a Firestore ni, en algunos casos, al servidor API. Suele deberse a red, bloqueo de dominios de Google, variables de entorno del build o CORS en el backend.'
+              : 'El subdominio que estás intentando acceder no existe o no está activo.'}
           </Typography>
 
           {error && (
