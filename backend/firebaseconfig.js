@@ -37,12 +37,17 @@ if (!controlDocServiceAccount) {
 }
 
 // ── ControlFile: Auth ──────────────────────────────────────────
-const cfKeyPath = path.resolve(__dirname, '../serviceAccountKey-controlfile.json');
-if (!fs.existsSync(cfKeyPath)) {
-  console.error('❌ No se encontró serviceAccountKey-controlfile.json en la raíz del proyecto.');
+let controlFileServiceAccount = null;
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS_CONTROLFILE_JSON) {
+  controlFileServiceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_CONTROLFILE_JSON);
+  if (controlFileServiceAccount.private_key) {
+    controlFileServiceAccount.private_key = controlFileServiceAccount.private_key.replace(/\\n/g, '\n');
+  }
+}
+if (!controlFileServiceAccount) {
+  console.error('❌ Falta GOOGLE_APPLICATION_CREDENTIALS_CONTROLFILE_JSON (service account JSON para ControlFile / Auth).');
   process.exit(1);
 }
-const controlFileServiceAccount = JSON.parse(fs.readFileSync(cfKeyPath, 'utf8'));
 
 // ── Inicializar apps (evitar duplicados en hot reload) ─────────
 const controlDocApp = admin.apps.find(a => a?.name === 'controldoc')
